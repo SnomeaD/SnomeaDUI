@@ -1,0 +1,17 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="core\api.lua"/>
+	<Script file="test.lua"/>
+	<Script file="config\profiles.lua"/>	
+	<Script file="modules\blizzard\watchframe.lua"/>
+	<Script file="modules\actionbars\Bar2.lua"/>
+	<Script file="modules\actionbars\Bar3.lua"/>
+	<Script file="modules\actionbars\Bar4.lua"/>
+	<Script file="modules\actionbars\Bar5.lua"/>
+	<Script file="modules\actionbars\actionbars.lua"/> 
+	<Script file="modules\chat\chat.lua"/>
+	<Script file="modules\panels\panels.lua"/>
+	<Script file="modules\tooltips\tooltips.lua"/>
+	<Script file="modules\unitframes\bars.lua"/>
+	<Script file="modules\unitframes\layout.lua"/>
+	<!-- <Script file="modules\unitframes\raid.lua"/> -->
+</Ui>

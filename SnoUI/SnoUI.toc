@@ -1,0 +1,7 @@
+## Interface: 40300
+## Title: |cffFFFFFFSnoUI|r
+## Notes: Snomead edited version of Tukui.
+## Author: Snomead
+## RequiredDeps: SnoUI_Config, Tukui, Bagnon
+
+SnoUI.xml
