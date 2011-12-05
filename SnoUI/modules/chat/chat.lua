@@ -2,6 +2,30 @@ local T, C, L = unpack(Tukui)
 
 if not C.chat.enable == true then return end
 
+
+-- default position of chat #1 (left) and chat #4 (right)
+T.SetDefaultChatPosition = function(frame)
+	if frame then
+		local id = frame:GetID()
+		local name = FCF_GetChatWindowInfo(id)
+		
+		if id == 1 then
+			frame:ClearAllPoints()
+			frame:Point("BOTTOMLEFT", TukuiInfoLeft, "TOPLEFT", 0, 6)
+			-- lock them if unlocked
+			if not frame.isLocked then FCF_SetLocked(frame, 1) end
+		elseif id == 3 then
+			if not frame.isDocked then
+				frame:ClearAllPoints()
+				frame:Point("BOTTOMRIGHT", TukuiInfoRight, "TOPRIGHT", 0, 6)
+				frame:SetJustifyH("RIGHT")
+			end
+		end
+		
+	end
+end
+hooksecurefunc("FCF_RestorePositionAndDimensions", T.SetDefaultChatPosition)
+
 local function SetupChat( self )
 	-- Setup the left chat
 	FCF_SetWindowName(ChatFrame1, "General")
@@ -45,6 +69,9 @@ local function SetupChat( self )
 	ChatFrame_AddMessageGroup(ChatFrame3, "COMBAT_FACTION_CHANGE")
 	ChatFrame_AddMessageGroup(ChatFrame3, "LOOT")
 	ChatFrame_AddMessageGroup(ChatFrame3, "SKILL")
+	ChatFrame_AddMessageGroup(ChatFrame3, "TRADESKILLS")
+	ChatFrame_AddMessageGroup(ChatFrame3, "CURRENCY")
+	ChatFrame_AddMessageGroup(ChatFrame3, "COMBAT_GUILD_XP_GAIN")
 	ChatFrame_AddMessageGroup(ChatFrame3, "MONEY")
 	ChatFrame_AddMessageGroup(ChatFrame3, "MONSTER_SAY")
 	ChatFrame_AddMessageGroup(ChatFrame3, "MONSTER_EMOTE")
@@ -71,9 +98,9 @@ local function SetupChat( self )
 	ChatFrame_RemoveAllMessageGroups(ChatFrame4)
 	ChatFrame4Tab:Kill()
 	ChatFrame4:Kill()
-	FCF_RestorePositionAndDimensions()
+	FCF_RestorePositionAndDimensions(ChatFrame1)
+	FCF_RestorePositionAndDimensions(ChatFrame3)
 end
-
 TukuiChat:HookScript( "OnEvent", function( self, event, ... )
 	local addon = ...
 	if( event == "ADDON_LOADED" ) then
@@ -85,27 +112,3 @@ TukuiChat:HookScript( "OnEvent", function( self, event, ... )
 		self:UnregisterEvent( "PLAYER_ENTERING_WORLD" )
 	end
 end )
-
-
--- default position of chat #1 (left) and chat #4 (right)
-T.SetDefaultChatPosition = function(frame)
-	if frame then
-		local id = frame:GetID()
-		local name = FCF_GetChatWindowInfo(id)
-		
-		if id == 1 then
-			frame:ClearAllPoints()
-			frame:Point("BOTTOMLEFT", TukuiInfoLeft, "TOPLEFT", 0, 6)
-			-- lock them if unlocked
-			if not frame.isLocked then FCF_SetLocked(frame, 1) end
-		elseif id == 3 then
-			if not frame.isDocked then
-				frame:ClearAllPoints()
-				frame:Point("BOTTOMRIGHT", TukuiInfoRight, "TOPRIGHT", 0, 6)
-				frame:SetJustifyH("RIGHT")
-			end
-		end
-		
-	end
-end
-hooksecurefunc("FCF_RestorePositionAndDimensions", T.SetDefaultChatPosition)

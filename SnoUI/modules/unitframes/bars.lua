@@ -62,7 +62,6 @@ if( C["unitframes"].unitcastbar == true ) then
 		Castbar.button:SetPoint( "RIGHT", Castbar, "LEFT", -6, 0 )
 		Castbar.button:Size( 24, 24 )
 	end
-	-- Castbar.safezone:Hide()
 
 	Castbar.bg = CreateFrame("Frame", nil, Castbar)
 	Castbar.bg:SetTemplate("Transparent")
