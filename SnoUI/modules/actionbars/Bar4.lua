@@ -15,7 +15,7 @@ for i= 1, 12 do
 	b:SetSize(T.buttonsize, T.buttonsize)
 	b:ClearAllPoints()
 	b:SetFrameStrata("BACKGROUND")
-	b:SetFrameLevel(15)
+	b:SetFrameLevel(14)
 	
 	if i == 1 then
 		b:SetPoint("TOPLEFT", bar, T.buttonspacing, -T.buttonspacing)

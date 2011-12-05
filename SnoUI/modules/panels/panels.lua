@@ -12,7 +12,7 @@ TukuiInfoLeft:ClearAllPoints()
 TukuiInfoRight:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -8, 8)
 TukuiInfoLeft:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 8, 8)
 
--- MOVEING THE MINIMAP STATS
+-- Move the minimap stats
 local minileft = TukuiMinimapStatsLeft
 local miniright = TukuiMinimapStatsRight
 
@@ -26,6 +26,10 @@ miniright:ClearAllPoints()
 miniright:Point("BOTTOMRIGHT", TukuiBar3, "TOPRIGHT", 0, 2)
 miniright:Width(72)
 
+-- Allways show Zone text above minimap
+local minimapText = TukuiMinimapZoneText
+minimapText:ClearAllPoints()
+minimapText:Point("BOTTOM", TukuiMinimap, "TOP", 0, 2)
 
 -- switch layout
 local UpdateTexture = function( self )

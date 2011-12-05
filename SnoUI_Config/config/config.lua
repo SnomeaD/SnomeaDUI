@@ -8,7 +8,7 @@ C["unitframes"] = {
 	["unicolor"] = true,
 	["charportrait"] = false,
 	["cbicons"] = true,
-	["cblatency"] = true,
+	["cblatency"] = false,  -- Don't turn on, bugged on mac
 	["classbar"] = true,
 	["classiccombo"] = true,
 	["gridonly"] = true,
@@ -66,9 +66,8 @@ C["media"] = {
 	["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\Minimalist]],
 	["DPSTex"] = [[Interface\AddOns\SnoUI\medias\textures\switch_layout_dd]],
 	["HealingTex"] = [[Interface\AddOns\SnoUI\medias\textures\switch_layout_heal]],
-
-	["bordercolor"] = { .125, .125, .125 },
-	["backdropcolor"] = { .0, .0, .0 },
+	["backdropcolor"] = { .1,.1,.1 },                   -- default backdrop color of panels
+	["bordercolor"] = { .3,.3,.3 },                     -- default border color of panels
 }
 
 TukuiEditedDefaultConfig = C

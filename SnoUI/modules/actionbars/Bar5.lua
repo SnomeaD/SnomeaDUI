@@ -3,7 +3,7 @@ local T, C, L = unpack(Tukui)
 if not C.actionbar.enable == true then return end
 
 ---------------------------------------------------------------------------
--- setup MultiBarBottomRight as bar #5
+-- setup MultiBarLeft as bar #5
 ---------------------------------------------------------------------------
 
 local bar = TukuiBar5

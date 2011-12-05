@@ -42,15 +42,11 @@ if( C["unitframes"].unitcastbar == true ) then
 	-- setup castbar
 	Castbar:ClearAllPoints()
 	Castbar:SetPoint( "BOTTOM", InvTukuiActionBarBackground, "TOP", 15, 5 )
-	Castbar.safezone:ClearAllPoints()
-	Castbar.safezone:SetPoint( "BOTTOM", InvTukuiActionBarBackground, "TOP", 15, 5 )
 	
 	if C["unitframes"].cbicons == true then
 		Castbar:Size( InvTukuiActionBarBackground:GetWidth() - 186, 22 )
-		Castbar.safezone:Size( InvTukuiActionBarBackground:GetWidth() - 186, 22 )
 	else
 		Castbar:Size( InvTukuiActionBarBackground:GetWidth() - 160, 22 )
-		Castbar.safezone:Size( InvTukuiActionBarBackground:GetWidth() - 160, 22 )
 	end
 	Castbar:CreateBorder()
 	Castbar:SetFrameLevel(4)
