@@ -11,26 +11,37 @@ local Castbar = TukuiPlayer.Castbar
 -- experience and reputation bar
 ---------------------------------------------------------------------------------------------
 if( T.level ~= MAX_PLAYER_LEVEL ) then
-	Experience:Width( TukuiMinimap:GetWidth() -2)
+	Experience:Width( TukuiMinimap:GetWidth() -4)
 	Experience:Height( 7 )
 	Experience:ClearAllPoints()
-	Experience:Point( "TOP", TukuiMinimap, "BOTTOM", 0, -4 )
+	Experience:Point( "TOP", TukuiMinimap, "BOTTOM", 0, -6 )
 	Experience:SetFrameLevel( 12 )
 	Experience:SetAlpha( 1 )
 	Experience:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
-	Experience:CreateBorder()
+	Experience.bg = CreateFrame("Frame", nil, Experience)
+	Experience.bg:SetTemplate("Transparent")
+	Experience.bg:SetBorder()
+	Experience.bg:SetPoint("TOPLEFT", -2, 2)
+	Experience.bg:SetPoint("BOTTOMRIGHT", 2, -2)
+	Experience.bg:SetFrameLevel(3)
 	Resting:SetTexture( nil )
 end
 
 if( T.level == MAX_PLAYER_LEVEL ) then
-	Reputation:Width( TukuiMinimap:GetWidth() -2)
+	Reputation:Width( TukuiMinimap:GetWidth() -4)
 	Reputation:Height( 7 )
 	Reputation:ClearAllPoints()
-	Reputation:Point( "TOP", TukuiMinimap, "BOTTOM", 0, -4 )
+	Reputation:Point( "TOP", TukuiMinimap, "BOTTOM", 0, -6 )
 	Reputation:SetFrameLevel( 10 )
 	Reputation:SetAlpha( 1 )
 	Reputation:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
-	Reputation:CreateBorder()
+	Reputation.bg = CreateFrame("Frame", nil, Reputation)
+	Reputation.bg:SetTemplate("Transparent")
+	Reputation.bg:SetBorder()
+	Reputation.bg:SetPoint("TOPLEFT", -2, 2)
+	Reputation.bg:SetPoint("BOTTOMRIGHT", 2, -2)
+	Reputation.bg:SetFrameLevel(3)
+	
 end
 
 

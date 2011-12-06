@@ -29,3 +29,16 @@
 -- 	end
 -- end)
 -- 
+-- /run InterfaceOptionsNamesPanelFriendlyPlayerNames:SetChecked(false)
+-- InterfaceOptionsNamesPanelNonCombatCreature:SetChecked(false)
+-- local function SetupCVars()
+-- -- SetCVar("UnitNameCompanionName", 0)
+-- 
+-- 
+-- 
+-- end
+-- 
+-- local frame = CreateFrame("Frame")
+-- frame:RegisterEvent("VARIABLES_LOADED")
+-- frame:SetScript("OnEvent", SetupCVars)
+-- 
