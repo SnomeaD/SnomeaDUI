@@ -43,4 +43,10 @@ local T, C, L = unpack(Tukui) -- Import: T - functions, constants, variables; C 
 -- frame:SetScript("OnEvent", SetupCVars)
 -- 
 if not IsAddOnLoaded( "Bagnon" ) then return end
-
+-- BagnonFrameinventory.bg = CreateFrame("Frame", nil, Experience)
+-- BagnonFrameinventory.bg:SetTemplate("Transparent")
+-- BagnonFrameinventory.bg:SetBorder()
+-- BagnonFrameinventory.bg:SetPoint("TOPLEFT", -2, 2)
+-- BagnonFrameinventory.bg:SetPoint("BOTTOMRIGHT", 2, -2)
+-- BagnonFrameinventory.bg:SetFrameLevel(3)
+-- T.SkinButton( BagnonFrameinventoryCloseButton )

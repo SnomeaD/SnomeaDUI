@@ -38,14 +38,13 @@ TukuiBar5:SetPoint("RIGHT", UIParent, "RIGHT", -8, -14)
 TukuiBar5ButtonTop:SetWidth(TukuiBar5:GetWidth())
 TukuiBar5ButtonBottom:SetWidth(TukuiBar5:GetWidth())
 
-TukuiShiftBar:SetPoint("BOTTOMLEFT", UIParent, 6, 160)
 InvTukuiActionBarBackground:SetPoint("TOPLEFT", TukuiBar2)
 InvTukuiActionBarBackground:SetPoint("BOTTOMRIGHT", TukuiBar3)
 
 
 if not C.actionbar.hideshapeshift == true then 
 	TukuiShiftBar:ClearAllPoints()
-	TukuiShiftBar:SetPoint("BOTTOMLEFT", UIParent,"BOTTOMLEFT", 6, 160)
+	TukuiShiftBar:Point("BOTTOMLEFT", UIParent,"BOTTOMLEFT", 6, 160)
 else
 	TukuiShiftBar:Hide()
 end
