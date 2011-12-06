@@ -8,6 +8,10 @@ local function SnoUICVars()
 	SetCVar( "chatBubbles", 0 )
 	SetCVar( "cameraDistanceMax", 50 )
 	SetCVar( "cameraDistanceMaxFactor", 3.4 )
+	SetCVar( "UnitNameCompanionName", 0 )
+	SetCVar( "UnitNameFriendlyPetName", 0 )
+	SetCVar( "UnitNameFriendlyPetName", 0 )
+	SetCVar( "nameplateShowFriends", 0 )
 end
 
 local OnLogon = CreateFrame( "Frame" )
