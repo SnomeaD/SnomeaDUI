@@ -26,11 +26,6 @@ miniright:ClearAllPoints()
 miniright:Point("BOTTOMRIGHT", TukuiBar3, "TOPRIGHT", 0, 2)
 miniright:Width(72)
 
--- Allways show Zone text above minimap
-local minimapText = TukuiMinimapZoneText
-minimapText:ClearAllPoints()
-minimapText:Point("BOTTOM", TukuiMinimap, "TOP", 0, 2)
-
 -- switch layout
 local UpdateTexture = function( self )
 	if( IsAddOnLoaded( "Tukui_Raid" ) ) then

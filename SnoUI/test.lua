@@ -1,4 +1,4 @@
--- local T, C, L = unpack(Tukui) -- Import: T - functions, constants, variables; C - config; L - locales
+local T, C, L = unpack(Tukui) -- Import: T - functions, constants, variables; C - config; L - locales
 -- if C.unitframes.enable ~= true then return end
 -- ------------------------------------------------------------------------
 -- --	local variables
@@ -42,3 +42,5 @@
 -- frame:RegisterEvent("VARIABLES_LOADED")
 -- frame:SetScript("OnEvent", SetupCVars)
 -- 
+if not IsAddOnLoaded( "Bagnon" ) then return end
+
