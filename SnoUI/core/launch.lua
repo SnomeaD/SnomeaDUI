@@ -10,6 +10,7 @@ local function SnoUICVars()
 	SetCVar( "cameraDistanceMaxFactor", 3.4 )
 	SetCVar( "UnitNameFriendlyPetName", 0 )
 	SetCVar( "nameplateShowFriends", 0 )
+	SetCVar( "taintlog", 1 )
 	-- SetCVar( "UnitNameCompanionName", 0 ) -- Doesn't work with 4.3 ?
 	-- InterfaceOptionsNamesPanelNonCombatCreature:SetChecked(false)
 end

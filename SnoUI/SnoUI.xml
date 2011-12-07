@@ -17,5 +17,5 @@
 	<Script file="modules\tooltips\tooltips.lua"/>
 	<Script file="modules\unitframes\bars.lua"/>
 	<Script file="modules\unitframes\layout.lua"/>
-	<!-- <Script file="modules\unitframes\raid.lua"/> -->
+	<Script file="modules\unitframes\raid.lua"/>
 </Ui>

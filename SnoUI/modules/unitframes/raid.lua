@@ -18,8 +18,6 @@ local function EditUnitFrame(frame, header)
 	
 	
 	-- place your stuff here for editing ALL raid frame unit in all layout with the same value
-	-- example in here, I want to hide all power bar from all Tukui layout
-
 	-- for layout-specifics, here we edit only 1 layout at time
 	if header == TukuiRaid25 then
 		health:CreateBorder(false, true)
