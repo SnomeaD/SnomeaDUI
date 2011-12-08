@@ -18,6 +18,12 @@ local function EditUnitFrame(frame, header)
 	
 	
 	-- place your stuff here for editing ALL raid frame unit in all layout with the same value
+	-- local pet = _G["oUF_TukuiPartyPet"..i]
+	-- pet:Kill()
+	-- pet:Size(1)
+	-- pet:SetScale(0.00001)
+	-- pet:SetAlpha(0)
+
 	-- for layout-specifics, here we edit only 1 layout at time
 	if header == TukuiRaid25 then
 		health:CreateBorder(false, true)
@@ -76,8 +82,10 @@ local function EditUnitFrame(frame, header)
 		
 		name:SetParent(health)
 		name:ClearAllPoints()
-		name:SetPoint("TOP", 0, -5)
+		name:SetPoint("TOP", 0, 0)
+		-- name:SetFont(C.media.uffont, 12, "THINOUTLINE")
 		name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
+		
 	end
 end
 
@@ -96,11 +104,11 @@ local function EditUnitAttributes(layout)
 	elseif healmax15 then
 		-- do your attributes
 	elseif grid then
-		header:SetAttribute("initial-width", 68)
+		header:SetAttribute("initial-width", 65)
 		header:SetAttribute("initial-height", 30)
-		header:SetAttribute("xoffset", 7)
-		header:SetAttribute("yOffset", -7)
-		header:SetAttribute("columnSpacing", T.Scale(10))
+		header:SetAttribute("xoffset", 4)
+		header:SetAttribute("yOffset", 0)
+		header:SetAttribute("columnSpacing", T.Scale(4))
 	end
 end
 
