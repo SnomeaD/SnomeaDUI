@@ -1,11 +1,84 @@
-local T, C, L = unpack( Tukui )
-
+local T, C, L = unpack(Tukui) -- Import: T - functions, constants, variables; C - config; L - locales
 if C.unitframes.enable ~= true then return end
 
+-- Base layout/code by Sinaris
+-- http://www.tukui.org/forums/forum.php?id=113
+
+------------------------------------------------------------------------
+--	local variables
+------------------------------------------------------------------------
+local unit = TukuiPlayer
+local Castbar = TukuiPlayer.Castbar
+local health = TukuiPlayer.Health
+local power = TukuiPlayer.Power
+local healthBG = TukuiPlayer.Health.bg
+local portrait = TukuiPlayer.Portrait
 local Experience = TukuiPlayer.Experience
 local Resting = TukuiPlayer.Resting
 local Reputation = TukuiPlayer.Reputation
-local Castbar = TukuiPlayer.Castbar
+
+---------------------------------------------------------------------------------------------
+-- not needed
+---------------------------------------------------------------------------------------------
+do
+	unit.shadow:Kill()
+	unit.panel:Kill()
+end
+
+---------------------------------------------------------------------------------------------
+-- health
+---------------------------------------------------------------------------------------------
+do
+	health:SetHeight( 28 )
+	health:CreateBorder( true )
+	healthBG:SetHeight( 180 )
+	if( C["unitframes"].unicolor == true ) then
+		health:SetStatusBarColor( .150, .150, .150, 1 )
+		healthBG:SetVertexColor( 1, 0, 0, 1 )
+		healthBG:SetTexture( 238, .44, .44, 0.3 )
+	end
+
+	health.value = T.SetFontString( health, C["media"].uffont, 13, "THINOUTLINE" )
+	health.value:Point( "RIGHT", health, "RIGHT", -5, 0 )
+	health.value:SetShadowOffset( 0, 0 )
+end
+
+---------------------------------------------------------------------------------------------
+-- power
+---------------------------------------------------------------------------------------------
+do
+	power:SetHeight( 5 )
+	power:CreateBorder( true )
+	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 9, 1 )
+	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -105, -2 )
+	power:SetFrameLevel( health:GetFrameLevel() + 1 )
+
+	if( C["unitframes"].unicolor == true ) then
+		power.colorTapping = true
+		power.colorClass = true
+		power.bg.multiplier = 0.1
+	end
+
+	power.value = T.SetFontString( health, C["media"].uffont, 13, "THINOUTLINE" )
+	power.value:Point( "LEFT", health, "LEFT", 5, 0 )
+	power.value:SetShadowOffset( 0, 0 )
+end
+
+---------------------------------------------------------------------------------------------
+-- portrait
+---------------------------------------------------------------------------------------------
+do
+	if( C["unitframes"].charportrait == true ) then
+		portrait:ClearAllPoints()
+		portrait:SetAllPoints( health )
+		-- portrait:SetAllPoints( TukuiPlayer.Health )
+		portrait:SetAlpha( 0.2 )
+		portrait.SetAlpha = T.dummy
+		health:SetPoint( "TOPLEFT", 0, 0 )
+		health:SetPoint( "TOPRIGHT" )
+		portrait:SetFrameLevel( power:GetFrameLevel() - 1 )
+	end
+end
 
 ---------------------------------------------------------------------------------------------
 -- experience and reputation bar
@@ -50,7 +123,6 @@ end
 ---------------------------------------------------------------------------------------------
 
 if( C["unitframes"].unitcastbar == true ) then
-	-- setup castbar
 	Castbar:ClearAllPoints()
 	Castbar:SetPoint( "BOTTOM", InvTukuiActionBarBackground, "TOP", 15, 5 )
 	
@@ -80,5 +152,4 @@ if( C["unitframes"].unitcastbar == true ) then
 	Castbar.bg:SetPoint("TOPLEFT", -2, 2)
 	Castbar.bg:SetPoint("BOTTOMRIGHT", 2, -2)
 	Castbar.bg:SetFrameLevel(3)
-
 end
