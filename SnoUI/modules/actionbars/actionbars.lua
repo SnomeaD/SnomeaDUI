@@ -56,6 +56,14 @@ TukuiBar4Button:Kill()
 TukuiBar5ButtonTop:Kill()
 TukuiBar5ButtonBottom:Kill()
 
+-- Move and resize the button to exit vehicle
+TukuiExitVehicleButtonLeft:ClearAllPoints()
+TukuiExitVehicleButtonLeft:SetSize(14, (T.buttonsize) + (T.buttonspacing * 2))
+TukuiExitVehicleButtonLeft:SetPoint("BOTTOMLEFT", TukuiBar3, "BOTTOMRIGHT", 2, 0)
+TukuiExitVehicleButtonRight:ClearAllPoints()
+TukuiExitVehicleButtonRight:SetSize(14, (T.buttonsize) + (T.buttonspacing * 2))
+TukuiExitVehicleButtonRight:SetPoint("BOTTOMRIGHT", TukuiBar1, "BOTTOMLEFT", -2, 0)
+
 -- Function to hide/show sidebar
 local function HideSideBar()
 	if not TukuiDataPerChar then TukuiDataPerChar = {} end
