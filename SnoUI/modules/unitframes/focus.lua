@@ -29,12 +29,6 @@ do
 	health:Height( 22 )
 	health:CreateBorder( true )
 
-	if( C["unitframes"].unicolor == true ) then
-		health:SetStatusBarColor( .150, .150, .150, 1 )
-		healthBG:SetVertexColor( 1, 0, 0, 1 )
-		healthBG:SetTexture( 238, .44, .44, 0.3 )
-	end
-
 	health.value = T.SetFontString( health, C["media"].uffont, 12, "THINOUTLINE" )
 	health.value:Point( "LEFT", 5, 0 )
 	health.value:SetShadowOffset( 0, 0 )
@@ -49,12 +43,6 @@ do
 	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -85, -2 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
 	power:CreateBorder( true )
-
-	if( C["unitframes"].unicolor == true ) then
-		power.colorTapping = true
-		power.colorClass = true
-		power.bg.multiplier = 0.1
-	end
 
 	power.value = T.SetFontString( health, C["media"].uffont, 12, "THINOUTLINE" )
 	power.value:Point( "RIGHT", -5, 0 )

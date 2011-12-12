@@ -29,13 +29,6 @@ end
 do
 	health:SetHeight( 28 )
 	health:CreateBorder( true )
-
-	if( C["unitframes"].unicolor == true ) then
-		health:SetStatusBarColor( .150, .150, .150, 1 )
-		healthBG:SetVertexColor( 1, 0, 0, 1 )
-		healthBG:SetTexture( 238, .44, .44, 0.3 )
-	end
-
 	health.value = T.SetFontString( health, C["media"].uffont, 13, "THINOUTLINE" )
 	health.value:Point( "RIGHT", health, "RIGHT", -5, 0 )
 	health.value:SetShadowOffset( 0, 0 )
@@ -43,7 +36,7 @@ do
 	name:SetFont( C["media"].uffont, 13, "THINOUTLINE" )
 	name:SetParent( health )
 	name:ClearAllPoints()
-	name:SetPoint( "LEFT", health, "LEFT", 5, 0 )
+	name:SetPoint( "LEFT", health, "LEFT", 5, 2 )
 	name:SetShadowOffset( 0, 0 )
 	name.ClearAllPoints = T.dummy
 	name.SetPoint = T.dummy
@@ -60,12 +53,7 @@ do
 	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -9, -6 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
 	power:CreateBorder( true )
-
-	if( C["unitframes"].unicolor == true ) then
-		power.colorTapping = true
-		power.colorClass = true
-		power.bg.multiplier = 0.1
-	end
+	-- power:CreateBorder( true )
 end
 
 ---------------------------------------------------------------------------------------------
@@ -89,21 +77,21 @@ end
 do
 	if( C["unitframes"].unitcastbar == true ) then
 		castbar:ClearAllPoints()
-		castbar:SetPoint( "TOPLEFT", TukuiTarget, "BOTTOMLEFT", 0, -8 )
+		castbar:SetPoint( "BOTTOMLEFT", TukuiTarget, "TOPLEFT", 0, 64 )
 		if C["unitframes"].cbicons == true then
-			castbar:Size( TukuiTarget:GetWidth() - 14, 10 )
+			castbar:Size( TukuiTarget:GetWidth() - 24, 16 )
 		else
-			castbar:Size( TukuiTarget:GetWidth() - 4, 10 )
+			castbar:Size( TukuiTarget:GetWidth() - 4, 16 )
 		end
-		castbar:CreateBorder( true )
+		castbar:CreateBorder()
 
 		if C["unitframes"].cbicons == true then
 			castbar.button:ClearAllPoints()
-			castbar.button:SetPoint( "LEFT", castbar, "RIGHT", 2, 0 )
-			castbar.button:Size( 12, 12 )
+			castbar.button:SetPoint( "LEFT", castbar, "RIGHT", 6, 0 )
+			castbar.button:Size( 18, 18 )
 		end
-		castbar.Time = T.SetFontString(castbar, C["media"].uffont, 10, "THINOUTLINE")
-		castbar.Text = T.SetFontString(castbar, C["media"].uffont, 10, "THINOUTLINE")
+		castbar.Time = T.SetFontString(castbar, C["media"].uffont, 12, "THINOUTLINE")
+		castbar.Text = T.SetFontString(castbar, C["media"].uffont, 12, "THINOUTLINE")
 		
 		castbar.Time:Point("RIGHT", castbar, "RIGHT", -4, 0)
 		castbar.Text:Point("LEFT", castbar, "LEFT", 4, 0)

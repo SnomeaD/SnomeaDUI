@@ -31,15 +31,8 @@ end
 do
 	health:SetHeight( 28 )
 	health:CreateBorder( true )
-
-	if( C["unitframes"].unicolor == true ) then
-		health:SetStatusBarColor( .150, .150, .150, 1 )
-		healthBG:SetVertexColor( 1, 0, 0, 1 )
-		healthBG:SetTexture( 238, .44, .44, 0.3 )
-	end
-
 	health.value = T.SetFontString( health, C["media"].uffont, 13, "THINOUTLINE" )
-	health.value:Point( "RIGHT", health, "RIGHT", -5, 0 )
+	health.value:Point( "RIGHT", health, "RIGHT", -5, 2 )
 	health.value:SetShadowOffset( 0, 0 )
 end
 
@@ -49,19 +42,20 @@ end
 do
 	-- power:SetHeight( 8 )
 	power:CreateBorder( true )
+	-- power:SetBorder()
 	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 9, 4 )
 	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -9, -6 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
-
-	if( C["unitframes"].unicolor == true ) then
-		power.colorTapping = true
-		power.colorClass = true
-		power.bg.multiplier = 0.1
-	end
-
 	power.value = T.SetFontString( health, C["media"].uffont, 13, "THINOUTLINE" )
-	power.value:Point( "LEFT", health, "LEFT", 5, 0 )
-	power.value:SetShadowOffset( 0, 0 )
+	power.value:Point( "LEFT", health, "LEFT", 5, 2 )
+	-- power.value:SetShadowOffset( 0, 0 )
+	-- power.bg = CreateFrame("Frame", nil, power)
+	-- power.bg:SetTemplate("Transparent")
+	-- power.bg:SetBorder()
+	-- power.bg:SetPoint("TOPLEFT", -2, 2)
+	-- power.bg:SetPoint("BOTTOMRIGHT", 2, -2)
+	-- power.bg:SetFrameLevel(health:GetFrameLevel() + 1)
+	
 end
 
 ---------------------------------------------------------------------------------------------
@@ -114,7 +108,6 @@ if( T.level == MAX_PLAYER_LEVEL ) then
 	Reputation.bg:SetPoint("TOPLEFT", -2, 2)
 	Reputation.bg:SetPoint("BOTTOMRIGHT", 2, -2)
 	Reputation.bg:SetFrameLevel(3)
-	
 end
 
 

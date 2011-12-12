@@ -28,12 +28,6 @@ do
 	health:SetHeight( 24 )
 	health:CreateBorder( true )
 
-	if( C["unitframes"].unicolor == true ) then
-		health:SetStatusBarColor( .150, .150, .150, 1 )
-		healthBG:SetVertexColor( 1, 0, 0, 1 )
-		healthBG:SetTexture( 238, .44, .44, 0.3 )
-	end
-
 	name:SetFont( C["media"].uffont, 12, "THINOUTLINE" )
 	name:SetParent( health )
 	name:ClearAllPoints()
