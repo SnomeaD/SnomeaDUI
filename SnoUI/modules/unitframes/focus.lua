@@ -104,7 +104,7 @@ end
 -- size, position
 ---------------------------------------------------------------------------------------------
 -- do
--- 	self:Size( 200, 22 )
+	unit:Size( 200, 22 )
 -- 	self:ClearAllPoints()
 -- 	self:Point( "BOTTOMLEFT", InvTukuiActionBarBackground, "TOPLEFT", -50, 300 )
 -- end

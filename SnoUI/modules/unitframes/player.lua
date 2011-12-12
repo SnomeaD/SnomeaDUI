@@ -31,7 +31,7 @@ end
 do
 	health:SetHeight( 28 )
 	health:CreateBorder( true )
-	healthBG:SetHeight( 180 )
+
 	if( C["unitframes"].unicolor == true ) then
 		health:SetStatusBarColor( .150, .150, .150, 1 )
 		healthBG:SetVertexColor( 1, 0, 0, 1 )
@@ -47,10 +47,10 @@ end
 -- power
 ---------------------------------------------------------------------------------------------
 do
-	power:SetHeight( 5 )
+	-- power:SetHeight( 8 )
 	power:CreateBorder( true )
-	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 9, 1 )
-	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -105, -2 )
+	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 9, 4 )
+	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -9, -6 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
 
 	if( C["unitframes"].unicolor == true ) then
@@ -127,9 +127,9 @@ if( C["unitframes"].unitcastbar == true ) then
 	Castbar:SetPoint( "BOTTOM", InvTukuiActionBarBackground, "TOP", 15, 5 )
 	
 	if C["unitframes"].cbicons == true then
-		Castbar:Size( InvTukuiActionBarBackground:GetWidth() - 186, 22 )
+		Castbar:Size( InvTukuiActionBarBackground:GetWidth() - 190, 18 )
 	else
-		Castbar:Size( InvTukuiActionBarBackground:GetWidth() - 160, 22 )
+		Castbar:Size( InvTukuiActionBarBackground:GetWidth() - 164, 18 )
 	end
 	Castbar:CreateBorder()
 	Castbar:SetFrameLevel(4)
@@ -143,7 +143,7 @@ if( C["unitframes"].unitcastbar == true ) then
 	if C["unitframes"].cbicons == true then
 		Castbar.button:ClearAllPoints()
 		Castbar.button:SetPoint( "RIGHT", Castbar, "LEFT", -6, 0 )
-		Castbar.button:Size( 24, 24 )
+		Castbar.button:Size( 20, 20 )
 	end
 
 	Castbar.bg = CreateFrame("Frame", nil, Castbar)
@@ -153,3 +153,11 @@ if( C["unitframes"].unitcastbar == true ) then
 	Castbar.bg:SetPoint("BOTTOMRIGHT", 2, -2)
 	Castbar.bg:SetFrameLevel(3)
 end
+
+---------------------------------------------------------------------------------------------
+-- size
+---------------------------------------------------------------------------------------------
+
+-- unit:Size( 246, 28 )
+unit:SetHeight( 28 )
+

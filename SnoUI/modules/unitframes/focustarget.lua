@@ -104,7 +104,7 @@ end
 -- size, position
 ---------------------------------------------------------------------------------------------
 -- do
--- 	self:Size( 200, 22 )
+	unit:Size( 200, 22 )
 -- 	self:ClearAllPoints()
 -- 	self:Point( "BOTTOM", TukuiFocus, "TOP", 0, 36 )
 -- end

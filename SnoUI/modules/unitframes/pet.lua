@@ -50,8 +50,8 @@ end
 -- power
 ---------------------------------------------------------------------------------------------
 do
-	power:SetHeight( 5 )
-	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 7, 0 )
+	power:SetHeight( 8 )
+	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 7, 2 )
 	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -7, 0 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
 	power:CreateBorder( true )
@@ -62,3 +62,8 @@ do
 		power.bg.multiplier = 0.1
 	end
 end
+---------------------------------------------------------------------------------------------
+-- size
+---------------------------------------------------------------------------------------------
+
+unit:Size( 130, 16 )

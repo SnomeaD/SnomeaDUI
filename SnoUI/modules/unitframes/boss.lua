@@ -103,7 +103,7 @@ for i = 1, MAX_BOSS_FRAMES do
 	-- size, position
 	---------------------------------------------------------------------------------------------
 	-- do
-	-- 	self:Size( 200, 22 )
+		unit:Size( 200, 22 )
 	-- 	self:ClearAllPoints()
 	-- 	if( i == 1 ) then
 	-- 		self:SetPoint( "BOTTOMRIGHT", InvTukuiActionBarBackground, "TOPRIGHT", 50, 300 )

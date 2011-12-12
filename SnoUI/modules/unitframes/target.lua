@@ -55,9 +55,9 @@ end
 -- power
 ---------------------------------------------------------------------------------------------
 do
-	power:SetHeight( 5 )
-	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 105, 1 )
-	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -9, -2 )
+	-- power:SetHeight( 5 )
+	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 9, 4 )
+	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -9, -6 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
 	power:CreateBorder( true )
 
@@ -89,33 +89,31 @@ end
 do
 	if( C["unitframes"].unitcastbar == true ) then
 		castbar:ClearAllPoints()
-		castbar:SetPoint( "TOPRIGHT", TukuiTarget, "BOTTOMRIGHT", 0, -14 )
+		castbar:SetPoint( "TOPLEFT", TukuiTarget, "BOTTOMLEFT", 0, -8 )
 		if C["unitframes"].cbicons == true then
-			castbar:Size( TukuiTarget:GetWidth() - 34, 22 )
+			castbar:Size( TukuiTarget:GetWidth() - 14, 10 )
 		else
-			castbar:Size( TukuiTarget:GetWidth() - 4, 22 )
+			castbar:Size( TukuiTarget:GetWidth() - 4, 10 )
 		end
 		castbar:CreateBorder( true )
 
 		if C["unitframes"].cbicons == true then
 			castbar.button:ClearAllPoints()
-			castbar.button:SetPoint( "LEFT", castbar, -32, 0 )
-			castbar.button:Size( 26, 26 )
+			castbar.button:SetPoint( "LEFT", castbar, "RIGHT", 2, 0 )
+			castbar.button:Size( 12, 12 )
 		end
+		castbar.Time = T.SetFontString(castbar, C["media"].uffont, 10, "THINOUTLINE")
+		castbar.Text = T.SetFontString(castbar, C["media"].uffont, 10, "THINOUTLINE")
+		
+		castbar.Time:Point("RIGHT", castbar, "RIGHT", -4, 0)
+		castbar.Text:Point("LEFT", castbar, "LEFT", 4, 0)
 
-		castbar.Text:SetFont( C["media"].uffont, 12, "THINOUTLINE" )
-		castbar.Text:SetParent( castbar )
-		castbar.Text:ClearAllPoints()
-		castbar.Text:SetPoint( "LEFT", castbar, "LEFT", 5, 0 )
-		castbar.Text.ClearAllPoints = T.dummy
-		castbar.Text.SetPoint = T.dummy
-
-		castbar.time:SetFont( C["media"].uffont, 12, "THINOUTLINE" )
-		castbar.time:SetParent( castbar )
-		castbar.time:ClearAllPoints()
-		castbar.time:SetPoint( "RIGHT", castbar, "RIGHT", -5, 0 )
-		castbar.time.ClearAllPoints = T.dummy
-		castbar.time.SetPoint = T.dummy
+		castbar.bg = CreateFrame("Frame", nil, castbar)
+		castbar.bg:SetTemplate("Transparent")
+		castbar.bg:SetBorder()
+		castbar.bg:SetPoint("TOPLEFT", -2, 2)
+		castbar.bg:SetPoint("BOTTOMRIGHT", 2, -2)
+		castbar.bg:SetFrameLevel(3)
 	end
 end
 
@@ -211,3 +209,9 @@ do
 		unit.Buffs:SetPoint( "BOTTOMLEFT", unit, "TOPLEFT", -2, 4 )
 	end
 end
+---------------------------------------------------------------------------------------------
+-- size
+---------------------------------------------------------------------------------------------
+
+-- unit:Size( 246, 28 )
+unit:SetHeight( 28 )
