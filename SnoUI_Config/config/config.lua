@@ -28,8 +28,8 @@ C["chat"] = {
 	["background"] = false,
 }
 C["datatext"] = {
-	["fps_ms"] = 5,
-	["system"] = 0,
+	["fps_ms"] = 0,
+	["system"] = 5,
 	["bags"] = 0,
 	["gold"] = 6,
 	["wowtime"] = 1,
