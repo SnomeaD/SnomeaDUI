@@ -2,13 +2,13 @@
 	<Script file="core\api.lua"/>
 	<Script file="core\launch.lua" />
 	<Script file="test.lua"/>
-	<Script file="config\profiles.lua"/>	
+	<Script file="config\profiles.lua"/>
 	<Script file="modules\blizzard\watchframe.lua"/>
 	<Script file="modules\actionbars\Bar2.lua"/>
 	<Script file="modules\actionbars\Bar3.lua"/>
 	<Script file="modules\actionbars\Bar4.lua"/>
 	<Script file="modules\actionbars\Bar5.lua"/>
-	<Script file="modules\actionbars\actionbars.lua"/> 
+	<Script file="modules\actionbars\actionbars.lua"/>
 	<Script file="modules\chat\chat.lua"/>
 	<Script file="modules\maps\minimap.lua"/>
 	<Script file="modules\misc\raidutility.lua"/>
@@ -19,11 +19,11 @@
 	<Script file="modules\unitframes\player.lua"/>
 	<Script file="modules\unitframes\target.lua"/>
 	<Script file="modules\unitframes\boss.lua"/>
+	<Script file="modules\unitframes\arena.lua"/>
 	<Script file="modules\unitframes\tot.lua"/>
 	<Script file="modules\unitframes\focus.lua"/>
 	<Script file="modules\unitframes\focustarget.lua"/>
 	<Script file="modules\unitframes\pet.lua"/>
-	<!-- <Script file="modules\unitframes\core.lua"/> -->
 	<Script file="modules\unitframes\layout.lua"/>
 	<Script file="modules\raidframes\raid.lua"/>
 </Ui>

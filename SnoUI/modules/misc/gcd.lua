@@ -18,13 +18,13 @@
 ]]
 
 local T, C, L = unpack(Tukui) -- Import: T - functions, constants, variables; C - config; L - locales
-if C.unitframes.enable ~= true and C.unitframes.gcd ~= true then return end
+if (C.unitframes.enable ~= true or C.unitframes.gcd ~= true) then return end
 
 local gcdbar, gcdspark
 local starttime, castDuration, warned
 
 local player = TukuiPlayer
-
+local playerwidth = player:GetWidth() - 2 -- border
 
 local function OnUpdate()
 	if not starttime then return gcdbar:SetScript("OnUpdate", nil) end
@@ -34,7 +34,7 @@ local function OnUpdate()
 		return gcdbar:SetScript("OnUpdate", nil)
 	else
 		gcdspark:ClearAllPoints()
-		gcdspark:SetPoint("CENTER", gcdbar, "LEFT", 250 * perc, 0)
+		gcdspark:SetPoint("CENTER", gcdbar, "LEFT", playerwidth * perc, 0)
 	end
 
 end
@@ -55,19 +55,24 @@ if not gcdbar then
 	gcdbar = CreateFrame("Frame", "SnoGCDBar", UIParent)
 	gcdbar:SetFrameStrata("HIGH")
 	gcdbar:SetClampedToScreen(true)
-	gcdbar:SetHeight(10)
-	gcdbar:SetWidth(250)
+	gcdbar:SetHeight(8)
+	gcdbar:SetWidth(playerwidth)
 	gcdbar:SetBackdrop({bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true, tileSize = 16})
 	gcdbar:SetBackdropColor(.1,.1,.1)
 	gcdbar:SetAlpha(0.8)
 	gcdbar:SetScale(1)
-	gcdbar:SetPoint("BOTTOMLEFT", player, "TOPLEFT", 0, 30)
-
+	if (T.myclass == "DRUID" or T.myclass == "WARLOCK" or T.myclass == "SHAMAN" or T.myclass == "PALADIN" or T.myclass == "WARLOCK" or T.myclass == "DEATHKNIGHT") then
+		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 14)
+	else
+		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 6)
+	end
 	gcdspark = gcdbar:CreateTexture(nil, "DIALOG")	
-	gcdspark:SetWidth(4)
-	gcdspark:SetHeight(10)
+	gcdspark:SetWidth(3)
+	gcdspark:SetHeight(8)
 	gcdspark:SetTexture(C["media"].blank)
-	gcdspark:SetVertexColor(1,1,1)
+	local c = T.UnitColor.class[T.myclass]
+	gcdspark:SetVertexColor(c[1], c[2], c[3])
+	
 	
 	gcdbar.bg = CreateFrame("Frame", nil, gcdbar)
 	gcdbar.bg:SetTemplate("Default")

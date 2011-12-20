@@ -32,7 +32,7 @@ do
 	health:SetHeight( 28 )
 	health:CreateBorder( true )
 	health.value = T.SetFontString( health, C["media"].uffont, 13, "THINOUTLINE" )
-	health.value:Point( "RIGHT", health, "RIGHT", -5, 2 )
+	health.value:Point( "RIGHT", health, "RIGHT", -25, 2 )
 	health.value:SetShadowOffset( 0, 0 )
 end
 
@@ -47,7 +47,7 @@ do
 	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -9, -6 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
 	power.value = T.SetFontString( health, C["media"].uffont, 13, "THINOUTLINE" )
-	power.value:Point( "LEFT", health, "LEFT", 5, 2 )
+	power.value:Point( "LEFT", health, "LEFT", 25, 2 )
 	-- power.value:SetShadowOffset( 0, 0 )
 	-- power.bg = CreateFrame("Frame", nil, power)
 	-- power.bg:SetTemplate("Transparent")

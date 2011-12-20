@@ -7,6 +7,7 @@ local T, C, L = unpack(Tukui)
 
 if T.myclass == "PRIEST" then
 	-- do some config!
+	-- C.unitframes.gcd = true
 	C.actionbar.hideshapeshift = true
 end
 
