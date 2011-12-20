@@ -24,7 +24,7 @@ local gcdbar, gcdspark
 local starttime, castDuration, warned
 
 local player = TukuiPlayer
-local playerwidth = player:GetWidth() - 2 -- border
+local playerwidth = player:GetWidth() - 4 -- border
 
 local function OnUpdate()
 	if not starttime then return gcdbar:SetScript("OnUpdate", nil) end
@@ -62,9 +62,9 @@ if not gcdbar then
 	gcdbar:SetAlpha(0.8)
 	gcdbar:SetScale(1)
 	if (T.myclass == "DRUID" or T.myclass == "WARLOCK" or T.myclass == "SHAMAN" or T.myclass == "PALADIN" or T.myclass == "WARLOCK" or T.myclass == "DEATHKNIGHT") then
-		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 14)
+		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 10)
 	else
-		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 6)
+		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 4)
 	end
 	gcdspark = gcdbar:CreateTexture(nil, "DIALOG")	
 	gcdspark:SetWidth(3)
