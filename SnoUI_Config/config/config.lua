@@ -5,6 +5,7 @@ C["general"] = {
 }
 
 C["unitframes"] = {
+	["gcd"] = false,
 	["unicolor"] = true,
 	["charportrait"] = false,
 	["cbicons"] = true,

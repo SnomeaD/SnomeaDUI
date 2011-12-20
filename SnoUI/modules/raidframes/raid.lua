@@ -83,9 +83,6 @@ local function EditUnitFrame(frame, header)
 		name:SetPoint("TOP", 0, 0)
 		-- name:SetFont(C.media.uffont, 12, "THINOUTLINE")
 		name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
-		local player = TukuiPlayer
-		TukuiRaidHealerGrid:ClearAllPoints()
-		TukuiRaidHealerGrid:Point("BOTTOMLEFT", player, "BOTTOMRIGHT", 4, 0)
 	end
 end
 
