@@ -15,7 +15,8 @@ local function EditUnitFrame(frame, header)
 	local panel = frame.panel
 	local name = frame.Name
 	local healthBG = frame.Health.bg
-	
+	local debuff = frame.Debuffs
+	local raiddebuff = frame.RaidDebuffs
 
 	-- place your stuff here for editing ALL raid frame unit in all layout with the same value
 
@@ -67,7 +68,6 @@ local function EditUnitFrame(frame, header)
 		health:SetFrameLevel(2)
 		healthBG:SetTexture(.25, .1, .1)
 		healthBG:SetVertexColor(.25, .1, .1)
-		
 		power:ClearAllPoints()
 	    power:Height(1)
 		power:CreateBorder(false, true)
@@ -81,8 +81,10 @@ local function EditUnitFrame(frame, header)
 		name:SetParent(health)
 		name:ClearAllPoints()
 		name:SetPoint("TOP", 0, 0)
-		-- name:SetFont(C.media.uffont, 12, "THINOUTLINE")
 		name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
+		
+		raiddebuff:Height(16)
+		raiddebuff:Width(16)
 	end
 end
 

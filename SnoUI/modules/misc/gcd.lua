@@ -36,7 +36,6 @@ local function OnUpdate()
 		gcdspark:ClearAllPoints()
 		gcdspark:SetPoint("CENTER", gcdbar, "LEFT", playerwidth * perc, 0)
 	end
-
 end
 
 local function CheckGCD(self, event, unit, spell)
@@ -62,7 +61,7 @@ if not gcdbar then
 	gcdbar:SetAlpha(0.8)
 	gcdbar:SetScale(1)
 	if (T.myclass == "DRUID" or T.myclass == "WARLOCK" or T.myclass == "SHAMAN" or T.myclass == "PALADIN" or T.myclass == "WARLOCK" or T.myclass == "DEATHKNIGHT") then
-		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 10)
+		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 12)
 	else
 		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 4)
 	end

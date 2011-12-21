@@ -11,6 +11,8 @@
 	<Script file="modules\actionbars\actionbars.lua"/>
 	<Script file="modules\chat\chat.lua"/>
 	<Script file="modules\maps\minimap.lua"/>
+	<Script file="modules\misc\dispelannounce.lua"/>
+	<Script file="modules\misc\enteringcombat.lua"/>
 	<Script file="modules\misc\raidutility.lua"/>
 	<Script file="modules\misc\mailopenall.lua"/>
 	<Script file="modules\misc\gcd.lua"/>

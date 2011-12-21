@@ -6,6 +6,17 @@ for _, panel in pairs(lines) do
 	panel:Hide()
 end
 
+-- Bottom background
+local bottomBackground = CreateFrame("Frame", "TukuiBottomBar", UIParent)
+    bottomBackground:CreatePanel("Default", 1, 22, "TOP", UIParent, "TOP", 0, 0)
+    bottomBackground:ClearAllPoints()
+    bottomBackground:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", T.Scale(-6), T.Scale(-6))
+    bottomBackground:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", T.Scale(6), T.Scale(-6))
+    bottomBackground:SetFrameStrata("BACKGROUND")
+    bottomBackground:SetFrameLevel(0)
+    bottomBackground:SetAlpha(.9)
+    bottomBackground:CreateShadow("Default")
+
 -- Move TukInfoPanel
 TukuiInfoRight:ClearAllPoints()
 TukuiInfoLeft:ClearAllPoints()
