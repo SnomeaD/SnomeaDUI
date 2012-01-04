@@ -20,9 +20,6 @@ local function EditUnitFrame(frame, header)
 
 	-- place your stuff here for editing ALL raid frame unit in all layout with the same value
 
-	TukuiRaidUtility:ClearAllPoints()
-	TukuiRaidUtility:SetPoint( "TOPRIGHT", TukuiMinimap, "BOTTOMRIGHT", 0, 20 )
-
 	-- for layout-specifics, here we edit only 1 layout at time
 	if header == TukuiRaid25 then
 		health:CreateBorder(false, true)
