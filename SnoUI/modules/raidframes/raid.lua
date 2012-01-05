@@ -35,18 +35,22 @@ local function EditUnitFrame(frame, header)
 	    power:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", -4, 2)
 	    power:SetStatusBarTexture(C["media"].blank)
 		power:SetFrameLevel(3)
-		
+		healthBG:SetTexture(.25, .1, .1)
+		healthBG:SetVertexColor(.25, .1, .1)
+
 		name:SetParent(health)
 		name:ClearAllPoints()
 		name:SetPoint("TOP", health, "TOP", 0, -5)
-		name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
+		health.colorClass = true
+		power.colorPower = true
+		-- name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
 	elseif header == TukuiRaid40 then
 		health:CreateBorder(false, true)
 		health:Height(24)
 		health:SetFrameLevel(2)
 		healthBG:SetTexture(.25, .1, .1)
 		healthBG:SetVertexColor(.25, .1, .1)
-		
+		health.colorClass = true
 		power:ClearAllPoints()
 	    power:Height(1)
 		power:CreateBorder(false, true)
@@ -58,7 +62,8 @@ local function EditUnitFrame(frame, header)
 		name:SetParent(health)
 		name:ClearAllPoints()
 		name:SetPoint("TOP", health, "TOP", 0, -5)
-		name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
+		-- name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
+		
 	elseif header == TukuiRaidHealerGrid then
 		health:CreateBorder(false, true)
 		health:Height(31)
@@ -66,19 +71,27 @@ local function EditUnitFrame(frame, header)
 		healthBG:SetTexture(.25, .1, .1)
 		healthBG:SetVertexColor(.25, .1, .1)
 		power:ClearAllPoints()
-	    power:Height(1)
+	    power:Height(3)
 		power:CreateBorder(false, true)
-	    power:Point("BOTTOMLEFT", health, "BOTTOMLEFT", 4, 2)
-	    power:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", -4, 2)
+	    power:Point("BOTTOMLEFT", health, "BOTTOMLEFT", 10, 3)
+	    power:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", -10, 3)
 	    power:SetStatusBarTexture(C["media"].blank)
 		power:SetFrameLevel(3)
-		
-		panel:Kill()
-		
+		-- panel:Kill()
 		name:SetParent(health)
 		name:ClearAllPoints()
 		name:SetPoint("TOP", 0, 0)
 		name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
+		health.colorClass = true
+		power.colorPower = true
+		name.colorPower = true
+		name:SetTextColor(1,1,1,1)
+		
+		-- LFDRole:Height(6*T.raidscale)
+		-- 	    LFDRole:Width(6*T.raidscale)
+		-- LFDRole:Point("TOPRIGHT", -2, -2)
+		-- LFDRole:SetTexture("Interface\\AddOns\\Tukui\\medias\\textures\\lfdicons.blp")
+		-- self.LFDRole = LFDRole
 		
 		raiddebuff:Height(16)
 		raiddebuff:Width(16)
