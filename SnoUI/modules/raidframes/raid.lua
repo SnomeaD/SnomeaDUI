@@ -86,14 +86,12 @@ local function EditUnitFrame(frame, header)
 		power.colorPower = false
 		name.colorClass = false
 		name:SetTextColor(1,1,1,1)
-		power:SetTexture(0.6,0.6,0.6)
-		power:SetVertexColor(0.6,0.6,0.6)
-		
-		LFDRole:Height(6*T.raidscale)
-		LFDRole:Width(6*T.raidscale)
-		LFDRole:Point("TOPRIGHT", -2, -2)
-		-- LFDRole:SetTexture("Interface\\AddOns\\Tukui\\medias\\textures\\lfdicons.blp")
-		frame.LFDRole = LFDRole
+	
+		-- LFDRole:Height(6*T.raidscale)
+		-- LFDRole:Width(6*T.raidscale)
+		-- LFDRole:Point("TOPRIGHT", -2, -2)
+		-- -- LFDRole:SetTexture("Interface\\AddOns\\Tukui\\medias\\textures\\lfdicons.blp")
+		-- frame.LFDRole = LFDRole
 		
 		raiddebuff:Height(16)
 		raiddebuff:Width(16)
