@@ -71,6 +71,7 @@ C["media"] = {
 	-- ["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\statusbar256]],
 	["DPSTex"] = [[Interface\AddOns\SnoUI\medias\textures\switch_layout_dd]],
 	["HealingTex"] = [[Interface\AddOns\SnoUI\medias\textures\switch_layout_heal]],
+	["gloss"] = [[Interface\AddOns\SnoUI\medias\textures\button_gloss]],
 	["backdropcolor"] = { .1,.1,.1 },                   -- default backdrop color of panels
 	["bordercolor"] = { .3,.3,.3 },                     -- default border color of panels
 }

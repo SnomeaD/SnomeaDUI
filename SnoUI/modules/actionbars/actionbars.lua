@@ -159,3 +159,60 @@ sidebarShow:RegisterEvent("UNIT_EXITING_VEHICLE")
 sidebarShow:RegisterEvent("UNIT_EXITED_VEHICLE")
 sidebarShow:SetScript("OnEvent", ShowSideBar)
 
+
+local ButtonStyle = function(self)
+	local name = self:GetName()
+	local Count = _G[name.."Count"]
+	local Icon = _G[name.."Icon"]
+	local Hotkey = _G[name.."HotKey"]
+	local ButtonBorder = _G[name.."Panel"]
+
+	-- if Count then
+	-- 	Count:SetFont(C.media.uffont)
+	-- end
+	-- 
+	-- if Hotkey then
+	-- 	Hotkey:SetFont(C.media.uffont)
+	-- end
+
+	if ButtonBorder then
+		if ButtonBorder.buttongloss then return end
+		local buttongloss = CreateFrame("Frame", ButtonBorder:GetName().."_ButtonGloss", ButtonBorder)
+		buttongloss:Point("CENTER", ButtonBorder, "CENTER", 0, 0)
+		buttongloss:Size(T.buttonsize, T.buttonsize)
+		buttongloss:SetFrameStrata(ButtonBorder:GetFrameStrata())
+		buttongloss:SetFrameLevel(ButtonBorder:GetFrameLevel() + 2)
+
+		local tex = buttongloss:CreateTexture(nil, "OVERLAY")
+		tex:SetTexture(C.media.gloss)
+		tex:SetPoint("TOPLEFT", buttongloss, 2, -2)
+		tex:SetPoint("BOTTOMRIGHT", buttongloss, -2, 2)
+		tex:SetAlpha(.4)
+		ButtonBorder.buttongloss = buttongloss
+	end
+end
+
+hooksecurefunc("ActionButton_Update", ButtonStyle)
+
+local ShiftAndPetButtonStyle = function(normal, button, icon, name, pet)
+	local PetButtonBorder = _G[name.."Panel"]
+
+	if PetButtonBorder then
+		if PetButtonBorder.petbuttongloss then return end
+		local petbuttongloss = CreateFrame("Frame", PetButtonBorder:GetName().."_ButtonGloss", PetButtonBorder)
+		petbuttongloss:Point("CENTER", PetButtonBorder, "CENTER", 0, 0)
+		petbuttongloss:Size(T.petbuttonsize, T.petbuttonsize)
+		petbuttongloss:SetFrameStrata(PetButtonBorder:GetFrameStrata())
+		petbuttongloss:SetFrameLevel(PetButtonBorder:GetFrameLevel() + 2)
+
+		local pettex = petbuttongloss:CreateTexture(nil, "OVERLAY")
+		pettex:SetTexture(C.media.gloss)
+		pettex:SetPoint("TOPLEFT", petbuttongloss, 2, -2)
+		pettex:SetPoint("BOTTOMRIGHT", petbuttongloss, -2, 2)
+		pettex:SetAlpha(.3)
+		PetButtonBorder.petbuttongloss = petbuttongloss
+	end
+end
+
+hooksecurefunc(T, "StyleActionBarPetAndShiftButton", ShiftAndPetButtonStyle)
+
