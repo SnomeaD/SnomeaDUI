@@ -2,7 +2,7 @@ local T, C, L = unpack( Tukui )
 
 local function SnoUICVars()
 	SetCVar( "autoDismountFlying", 1 )
-	SetCVar( "showLootSpam", 0 )
+	SetCVar( "showLootSpam", 1 )
 	SetCVar( "guildMemberNotify", 1 )
 	SetCVar( "chatBubblesParty", 0 )
 	SetCVar( "chatBubbles", 0 )
