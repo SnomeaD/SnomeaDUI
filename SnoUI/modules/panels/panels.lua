@@ -6,6 +6,19 @@ for _, panel in pairs(lines) do
 	panel:Hide()
 end
 
+if not C.actionbar.hideshapeshift == true then 
+	-- shapeshift bar
+	local ssborder = CreateFrame( "Frame", "ShapeShiftBorder", ShapeshiftButton1 )
+	ssborder:Point("LEFT", -T.buttonspacing, 0)
+	ssborder:SetTemplate("Default")
+	ssborder:SetFrameLevel(1)
+	ssborder:SetFrameStrata("BACKGROUND")
+
+	TukuiShapeShift:HookScript( "OnEvent", function( self, event, ... )
+		ShapeShiftBorder:Size((( ShapeshiftButton1:GetWidth() + T.buttonspacing) * GetNumShapeshiftForms()) + T.buttonspacing, ShapeshiftButton1:GetHeight() + 2 * T.buttonspacing)
+	end)
+end
+
 -- Bottom background
 local bottomBackground = CreateFrame("Frame", "TukuiBottomBar", UIParent)
     bottomBackground:CreatePanel("Default", 1, 22, "TOP", UIParent, "TOP", 0, 0)

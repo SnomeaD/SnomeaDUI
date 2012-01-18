@@ -57,23 +57,24 @@ C["datatext"] = {
 	["localtime"] = true,
 	["fontsize"] = 12, 
 }
-
+C["chat"] = {
+	["background"] = false,
+}
 C["bags"] = {
 	["enable"] = false,
 }
 
 C["media"] = {
-	--["normTex"] = [[Interface\AddOns\SinarisUI\medias\textures\smellyTex]],
-	-- This["normTex"] = [[Interface\AddOns\SinarisUI\medias\textures\statusbar256_2]],
 	-- ["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\Minimalist]],
 	["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\Smooth]],
 	-- ["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\sinaris]],
 	-- ["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\statusbar256]],
+	-- ["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\button_gloss]],
 	["DPSTex"] = [[Interface\AddOns\SnoUI\medias\textures\switch_layout_dd]],
 	["HealingTex"] = [[Interface\AddOns\SnoUI\medias\textures\switch_layout_heal]],
 	["gloss"] = [[Interface\AddOns\SnoUI\medias\textures\button_gloss]],
 	["backdropcolor"] = { .1,.1,.1 },                   -- default backdrop color of panels
-	["bordercolor"] = { .3,.3,.3 },                     -- default border color of panels
+	["bordercolor"] = { .2,.2,.2 },                     -- default border color of panels
 }
 
 TukuiEditedDefaultConfig = C
