@@ -13,7 +13,6 @@ local function EditUnitFrame(frame, header)
 	local health = frame.Health
 	local power = frame.Power
 	local panel = frame.panel
-	local name = frame.Name
 	local healthBG = frame.Health.bg
 	local debuff = frame.Debuffs
 	local raiddebuff = frame.RaidDebuffs
@@ -21,71 +20,76 @@ local function EditUnitFrame(frame, header)
 	-- place your stuff here for editing ALL raid frame unit in all layout with the same value
 
 	-- for layout-specifics, here we edit only 1 layout at time
-	if header == TukuiRaid25 then
-		health:CreateBorder(false, true)
-		health:Height(24)
-		health:SetFrameLevel(2)
-		healthBG:SetTexture(.25, .1, .1)
-		healthBG:SetVertexColor(.25, .1, .1)
-		
-		power:ClearAllPoints()
-	    power:Height(1)
-		power:CreateBorder(false, true)
-	    power:Point("BOTTOMLEFT", health, "BOTTOMLEFT", 4, 2)
-	    power:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", -4, 2)
-	    power:SetStatusBarTexture(C["media"].blank)
-		power:SetFrameLevel(3)
-		healthBG:SetTexture(.25, .1, .1)
-		healthBG:SetVertexColor(.25, .1, .1)
+	-- if header == TukuiRaid25 then
+	-- 	health:CreateBorder(false, true)
+	-- 	health:Height(24)
+	-- 	health:SetFrameLevel(2)
+	-- 	healthBG:SetTexture(.25, .1, .1)
+	-- 	healthBG:SetVertexColor(.25, .1, .1)
+	-- 	
+	-- 	power:ClearAllPoints()
+	--     power:Height(1)
+	-- 	power:CreateBorder(false, true)
+	--     power:Point("BOTTOMLEFT", health, "BOTTOMLEFT", 4, 2)
+	--     power:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", -4, 2)
+	--     power:SetStatusBarTexture(C["media"].blank)
+	-- 	power:SetFrameLevel(3)
+	-- 	healthBG:SetTexture(.25, .1, .1)
+	-- 	healthBG:SetVertexColor(.25, .1, .1)
+	-- 
+	-- 	name:SetParent(health)
+	-- 	name:ClearAllPoints()
+	-- 	name:SetPoint("TOP", health, "TOP", 0, -5)
+	-- 	health.colorClass = true
+	-- 	power.colorPower = true
+	-- 	-- name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
+	-- elseif header == TukuiRaid40 then
+	-- 	health:CreateBorder(false, true)
+	-- 	health:Height(24)
+	-- 	health:SetFrameLevel(2)
+	-- 	healthBG:SetTexture(.25, .1, .1)
+	-- 	healthBG:SetVertexColor(.25, .1, .1)
+	-- 	health.colorClass = true
+	-- 	power:ClearAllPoints()
+	--     power:Height(1)
+	-- 	power:CreateBorder(false, true)
+	--     power:Point("BOTTOMLEFT", health, "BOTTOMLEFT", 4, 2)
+	--     power:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", -4, 2)
+	--     power:SetStatusBarTexture(C["media"].blank)
+	-- 	power:SetFrameLevel(3)
+	-- 	
+	-- 	name:SetParent(health)
+	-- 	name:ClearAllPoints()
+	-- 	name:SetPoint("TOP", health, "TOP", 0, -5)
+	-- 	-- name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
+	-- 	
+	-- else
+	if header == TukuiRaidHealerGrid then
+		-- health:CreateBorder(false, true)
+		health:Height(18)
+		-- health:SetFrameLevel(2)
+		-- healthBG:SetTexture(.25, .1, .1)
+		-- healthBG:SetVertexColor(.25, .1, .1)
+		-- power:ClearAllPoints()
+		-- 	    power:Height(3)
+		-- power:CreateBorder(false, true)
+		-- 	    power:Point("BOTTOMLEFT", health, "BOTTOMLEFT", 10, 3)
+		-- 	    power:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", -10, 3)
+		-- 	    power:SetStatusBarTexture(C["media"].blank)
+		-- power:SetFrameLevel(3)
+		-- panel:Kill()
+		-- panel:Height(10)
+		-- panel:Point("BOTTOMLEFT", power, "BOTTOMLEFT", 10, 3)
+		-- panel:Point("BOTTOMRIGHT", power, "BOTTOMRIGHT", -10, 3)
 
-		name:SetParent(health)
-		name:ClearAllPoints()
-		name:SetPoint("TOP", health, "TOP", 0, -5)
+		-- name:SetParent(health)
+		-- name:ClearAllPoints()
+		-- name:SetPoint("TOP", 0, 0)
+		name:SetFont(C.media.uffont, 12, "THINOUTLINE")
 		health.colorClass = true
 		power.colorPower = true
-		-- name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
-	elseif header == TukuiRaid40 then
-		health:CreateBorder(false, true)
-		health:Height(24)
-		health:SetFrameLevel(2)
-		healthBG:SetTexture(.25, .1, .1)
-		healthBG:SetVertexColor(.25, .1, .1)
-		health.colorClass = true
-		power:ClearAllPoints()
-	    power:Height(1)
-		power:CreateBorder(false, true)
-	    power:Point("BOTTOMLEFT", health, "BOTTOMLEFT", 4, 2)
-	    power:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", -4, 2)
-	    power:SetStatusBarTexture(C["media"].blank)
-		power:SetFrameLevel(3)
-		
-		name:SetParent(health)
-		name:ClearAllPoints()
-		name:SetPoint("TOP", health, "TOP", 0, -5)
-		-- name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
-		
-	elseif header == TukuiRaidHealerGrid then
-		health:CreateBorder(false, true)
-		health:Height(31)
-		health:SetFrameLevel(2)
-		healthBG:SetTexture(.25, .1, .1)
-		healthBG:SetVertexColor(.25, .1, .1)
-		power:ClearAllPoints()
-	    power:Height(3)
-		power:CreateBorder(false, true)
-	    power:Point("BOTTOMLEFT", health, "BOTTOMLEFT", 10, 3)
-	    power:Point("BOTTOMRIGHT", health, "BOTTOMRIGHT", -10, 3)
-	    power:SetStatusBarTexture(C["media"].blank)
-		power:SetFrameLevel(3)
-		-- panel:Kill()
-		name:SetParent(health)
-		name:ClearAllPoints()
-		name:SetPoint("TOP", 0, 0)
-		name:SetFont(C.media.pixelfont, 12, "MONOCHROMEOUTLINE")
-		health.colorClass = true
-		power.colorPower = false
-		name.colorClass = false
-		name:SetTextColor(1,1,1,1)
+		-- name.colorClass = false
+		-- name:SetTextColor(1,1,1,1)
 	
 		-- LFDRole:Height(6*T.raidscale)
 		-- LFDRole:Width(6*T.raidscale)
@@ -106,13 +110,13 @@ local function EditUnitAttributes(layout)
 	local grid = layout:match("HealerGrid")
 	
 	-- set your new attributes here, in this example we only resize units, X/Y offset and column spacing to Grid.
-	if dpsmax25 then
-		header:SetAttribute("yOffset", -10)
-	elseif dpsmax40 then
-		header:SetAttribute("yOffset", -10)
-	elseif healmax15 then
+	-- if dpsmax25 then
+	-- 	header:SetAttribute("yOffset", -10)
+	-- elseif dpsmax40 then
+	-- 	header:SetAttribute("yOffset", -10)
+	-- elseif healmax15 then
 		-- do your attributes
-	elseif grid then
+	if grid then
 		header:SetAttribute("initial-width", 65)
 		header:SetAttribute("initial-height", 30)
 		header:SetAttribute("xoffset", 4)

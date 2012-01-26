@@ -20,5 +20,7 @@ OnLogon:RegisterEvent( "PLAYER_ENTERING_WORLD" )
 OnLogon:SetScript( "OnEvent", function( self, event )
 	self:UnregisterEvent( "PLAYER_ENTERING_WORLD" )
 	print( "|cff8467D7SnoUI|r |cff009900loaded!" )
+	local db = TukuiDataPerChar
+	db.hidebar2 = false
 	SnoUICVars()
 end )

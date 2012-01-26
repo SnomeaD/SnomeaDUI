@@ -16,6 +16,7 @@ C["unitframes"] = {
 	["healcomm"] = true,
 	["showplayerinparty"] = true,
 	["weakenedsoulbar"] = false,                         -- show weakened soul bar
+	["gridhealthvertical"] = false,
 }
 
 C["actionbar"] = {

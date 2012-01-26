@@ -87,6 +87,7 @@ local function HideSideBar()
 	
 end
 local function ShowSideBar()
+	TukuiBar2:Show()
 	if not TukuiDataPerChar then TukuiDataPerChar = {} end
 	local db = TukuiDataPerChar
 	local buttonTop = SnoUISideBarButtonTop
