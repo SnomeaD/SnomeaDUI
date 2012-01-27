@@ -40,22 +40,12 @@ end
 -- power
 ---------------------------------------------------------------------------------------------
 do
-	-- power:SetHeight( 8 )
-	power:CreateBorder( true )
-	-- power:SetBorder()
+	power:CreateBorder( false, true )
 	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 9, 4 )
 	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -9, -6 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
 	power.value = T.SetFontString( health, C["media"].uffont, 13, "THINOUTLINE" )
 	power.value:Point( "LEFT", health, "LEFT", 25, 2 )
-	-- power.value:SetShadowOffset( 0, 0 )
-	-- power.bg = CreateFrame("Frame", nil, power)
-	-- power.bg:SetTemplate("Transparent")
-	-- power.bg:SetBorder()
-	-- power.bg:SetPoint("TOPLEFT", -2, 2)
-	-- power.bg:SetPoint("BOTTOMRIGHT", 2, -2)
-	-- power.bg:SetFrameLevel(health:GetFrameLevel() + 1)
-	
 end
 
 ---------------------------------------------------------------------------------------------

@@ -52,8 +52,7 @@ do
 	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 9, 4 )
 	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -9, -6 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
-	power:CreateBorder( true )
-	-- power:CreateBorder( true )
+	power:CreateBorder( false, true )
 end
 
 ---------------------------------------------------------------------------------------------

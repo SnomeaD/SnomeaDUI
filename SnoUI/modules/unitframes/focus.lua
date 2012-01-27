@@ -42,7 +42,7 @@ do
 	power:Point( "TOPLEFT", shealth, "BOTTOMLEFT", 9, 1 )
 	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -85, -2 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
-	power:CreateBorder( true )
+	power:CreateBorder( false, true )
 
 	power.value = T.SetFontString( health, C["media"].uffont, 12, "THINOUTLINE" )
 	power.value:Point( "RIGHT", -5, 0 )

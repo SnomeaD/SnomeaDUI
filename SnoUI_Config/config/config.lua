@@ -13,6 +13,7 @@ C["unitframes"] = {
 	["classbar"] = true,
 	["classiccombo"] = true,
 	["gridonly"] = true,
+	["gridvertical"] = false,
 	["healcomm"] = true,
 	["showplayerinparty"] = true,
 	["weakenedsoulbar"] = false,                         -- show weakened soul bar

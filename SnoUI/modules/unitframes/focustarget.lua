@@ -48,7 +48,7 @@ do
 	power:Point( "TOPLEFT", health, "BOTTOMLEFT", 9, 1 )
 	power:Point( "TOPRIGHT", health, "BOTTOMRIGHT", -85, -2 )
 	power:SetFrameLevel( health:GetFrameLevel() + 1 )
-	power:CreateBorder( true )
+	power:CreateBorder( false, true )
 
 	if( C["unitframes"].unicolor == true ) then
 		power.colorTapping = true
