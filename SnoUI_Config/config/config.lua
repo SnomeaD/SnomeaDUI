@@ -60,6 +60,7 @@ C["datatext"] = {
 	["fontsize"] = 12, 
 }
 C["chat"] = {
+	["enable"] = false,
 	["background"] = false,
 }
 C["bags"] = {
