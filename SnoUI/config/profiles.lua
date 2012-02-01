@@ -51,3 +51,8 @@ if T.myclass == "SHAMAN" then
 	C.datatext.crit = 8
 	C.unitframes.gcd = true
 end
+if T.myclass == "ROGUE" then
+	-- do some config!
+	C.unitframes.gcd = true
+	C.actionbar.hideshapeshift = true
+end
