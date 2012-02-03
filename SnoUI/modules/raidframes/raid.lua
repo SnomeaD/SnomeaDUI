@@ -85,7 +85,7 @@ local function EditUnitFrame(frame, header)
 		-- name:SetParent(health)
 		-- name:ClearAllPoints()
 		-- name:SetPoint("TOP", 0, 0)
-		name:SetFont(C.media.uffont, 10, "THINOUTLINE")
+		name:SetFont(C.media.uffont, 14, "THINOUTLINE")
 		health.colorClass = true
 		power.colorPower = true
 		-- name.colorClass = false
