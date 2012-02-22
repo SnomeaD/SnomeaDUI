@@ -47,7 +47,11 @@ minileft:Width(72)
 
 miniright:SetParent(UIParent)
 miniright:ClearAllPoints()
-miniright:Point("BOTTOMRIGHT", TukuiBar3, "TOPRIGHT", 0, 2)
+if T.lowversion then
+	miniright:Point("BOTTOMRIGHT", TukuiBar2, "TOPRIGHT", 0, 2)
+else
+	miniright:Point("BOTTOMRIGHT", TukuiBar3, "TOPRIGHT", 0, 2)
+end
 miniright:Width(72)
 
 -- switch layout

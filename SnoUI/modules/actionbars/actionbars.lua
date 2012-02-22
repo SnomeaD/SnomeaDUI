@@ -19,8 +19,11 @@ TukuiBar5:ClearAllPoints()
 -- Remove backdrop for Bar2. The Bar2 is in the Bar1's backdrops and set width
 TukuiBar2:SetBackdrop(nil)
 TukuiBar2:SetWidth((T.buttonsize * 12) + (T.buttonspacing * 11)+10)
-
-TukuiBar1:SetPoint("BOTTOM", UIParent, "BOTTOM", -(((T.buttonsize * 6) + (T.buttonspacing * 7)+10)/2), 7)
+if not T.lowversion then
+	TukuiBar1:SetPoint("BOTTOM", UIParent, "BOTTOM", -(((T.buttonsize * 6) + (T.buttonspacing * 7)+10)/2), 7)
+else
+	TukuiBar1:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 7)
+end
 TukuiBar2:SetPoint("BOTTOM", TukuiBar1, "BOTTOM")
 TukuiBar3:SetPoint("BOTTOMLEFT", TukuiBar1, "BOTTOMRIGHT", 10, 0)
 
@@ -38,8 +41,15 @@ TukuiBar5:SetPoint("RIGHT", UIParent, "RIGHT", -8, -14)
 TukuiBar5ButtonTop:SetWidth(TukuiBar5:GetWidth())
 TukuiBar5ButtonBottom:SetWidth(TukuiBar5:GetWidth())
 
+if not T.lowversion then
+	InvTukuiActionBarBackground:SetPoint("BOTTOMRIGHT", TukuiBar3)
+else
+	InvTukuiActionBarBackground:SetPoint("BOTTOMRIGHT", TukuiBar1)
+	TukuiBar2:Show()
+	TukuiBar2:SetAlpha(1)
+end
 InvTukuiActionBarBackground:SetPoint("TOPLEFT", TukuiBar2)
-InvTukuiActionBarBackground:SetPoint("BOTTOMRIGHT", TukuiBar3)
+
 
 
 if not C.actionbar.hideshapeshift == true then 

@@ -18,7 +18,9 @@ local name = TukuiTargetTarget.Name
 ---------------------------------------------------------------------------------------------
 do
 	unit.shadow:Kill()
-	unit.panel:Kill()
+	if not T.lowversion then
+		unit.panel:Kill()
+	end
 end
 
 ---------------------------------------------------------------------------------------------

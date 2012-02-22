@@ -2,4 +2,8 @@ local T, C, L = unpack( Tukui )
 
 
 TukuiWatchFrameAnchor:ClearAllPoints()
-TukuiWatchFrameAnchor:SetPoint("TOPRIGHT", UIParent, -90, -220)
+if not T.lowversion then
+	TukuiWatchFrameAnchor:SetPoint("TOPRIGHT", UIParent, -90, -220)
+else
+	TukuiWatchFrameAnchor:SetPoint("TOPRIGHT", UIParent, -104, -220)
+end
