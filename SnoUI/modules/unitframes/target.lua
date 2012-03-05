@@ -97,7 +97,7 @@ do
 
 		castbar.bg = CreateFrame("Frame", nil, castbar)
 		castbar.bg:SetTemplate("Transparent")
-		castbar.bg:SetBorder()
+		castbar.bg:CreateBorders()
 		castbar.bg:SetPoint("TOPLEFT", -2, 2)
 		castbar.bg:SetPoint("BOTTOMRIGHT", 2, -2)
 		castbar.bg:SetFrameLevel(3)

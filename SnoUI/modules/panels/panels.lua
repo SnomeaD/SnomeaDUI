@@ -55,10 +55,10 @@ end
 miniright:Width(72)
 
 -- switch layout
-local UpdateTexture = function( self )
+local UpdateLayoutTexture = function( self )
 	if( IsAddOnLoaded( "Tukui_Raid" ) ) then
 		newTex = C["media"].DPSTex
-	elseif( IsAddOnLoaded( "Tukui_Raid_Healing" ) ) then
+	elseif( IsAddOnLoaded( "SnoUI_Raid_Healing" ) ) then
 		newTex = C["media"].HealingTex
 	end
 	self.tex:SetTexture( newTex )
@@ -75,18 +75,18 @@ local SwitchLayoutButton = CreateFrame("Button", "TukuiSwitchLayoutButton", UIPa
 	SwitchLayoutButton.tex:SetTexCoord( 0.08, 0.92, 0.08, 0.92 )
 	
 	SwitchLayoutButton:RegisterEvent( "PLAYER_ENTERING_WORLD" )
-	SwitchLayoutButton:SetScript( "OnEvent", UpdateTexture )
+	SwitchLayoutButton:SetScript( "OnEvent", UpdateLayoutTexture )
 	SwitchLayoutButton:RegisterForClicks( "AnyUp" )
 	SwitchLayoutButton:SetScript("OnClick", function()
 		if IsAddOnLoaded("Tukui_Raid") then
 			DisableAddOn("Tukui_Raid")
-			EnableAddOn("Tukui_Raid_Healing")
+			EnableAddOn("SnoUI_Raid_Healing")
 			ReloadUI()
-		elseif IsAddOnLoaded("Tukui_Raid_Healing") then
-			DisableAddOn("Tukui_Raid_Healing")
+		elseif IsAddOnLoaded("SnoUI_Raid_Healing") then
+			DisableAddOn("SnoUIRaid_Healing")
 			EnableAddOn("Tukui_Raid")
 			ReloadUI()
-		elseif not IsAddOnLoaded("Tukui_Raid_Healing") and not IsAddOnLoaded("Tukui_Raid") then
+		elseif not IsAddOnLoaded("SnoUI_Raid_Healing") and not IsAddOnLoaded("Tukui_Raid") then
 			EnableAddOn("Tukui_Raid")
 			ReloadUI()
 		end

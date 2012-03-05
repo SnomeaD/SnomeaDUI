@@ -1,0 +1,9 @@
+## Interface: 40300
+## Author: SnomeaD
+## Credit: Tukz, Pat
+## Title: |cffFFFFFFSnoUI Raid Healing|r
+## Notes: Raid layout for party and raid, Healer mode.
+## X-Category: UnitFrame
+## RequiredDeps: SnoUI
+
+SnoUI_Raid_Healing.lua

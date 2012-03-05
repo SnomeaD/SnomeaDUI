@@ -178,14 +178,6 @@ local ButtonStyle = function(self)
 	local Hotkey = _G[name.."HotKey"]
 	local ButtonBorder = _G[name.."Panel"]
 
-	-- if Count then
-	-- 	Count:SetFont(C.media.uffont)
-	-- end
-	-- 
-	-- if Hotkey then
-	-- 	Hotkey:SetFont(C.media.uffont)
-	-- end
-
 	if ButtonBorder then
 		if ButtonBorder.buttongloss then return end
 		local buttongloss = CreateFrame("Frame", ButtonBorder:GetName().."_ButtonGloss", ButtonBorder)
