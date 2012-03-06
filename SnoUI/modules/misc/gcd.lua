@@ -75,7 +75,7 @@ if not gcdbar then
 	
 	gcdbar.bg = CreateFrame("Frame", nil, gcdbar)
 	gcdbar.bg:SetTemplate("Default")
-	gcdbar.bg:CreateBorders()
+	gcdbar.bg:CreateBorder(false, true)
 	gcdbar.bg:SetPoint("TOPLEFT", -2, 2)
 	gcdbar.bg:SetPoint("BOTTOMRIGHT", 2, -2)
 	gcdbar.bg:SetFrameLevel(gcdbar:GetFrameLevel() - 1)
