@@ -58,7 +58,7 @@ miniright:Width(72)
 local UpdateLayoutTexture = function( self )
 	if( IsAddOnLoaded( "Tukui_Raid" ) ) then
 		newTex = C["media"].DPSTex
-	elseif( IsAddOnLoaded( "SnoUI_Raid_Healing" ) ) then
+	elseif( IsAddOnLoaded( "Tukui_Raid_Healing" ) ) then
 		newTex = C["media"].HealingTex
 	end
 	self.tex:SetTexture( newTex )
@@ -80,13 +80,13 @@ local SwitchLayoutButton = CreateFrame("Button", "TukuiSwitchLayoutButton", UIPa
 	SwitchLayoutButton:SetScript("OnClick", function()
 		if IsAddOnLoaded("Tukui_Raid") then
 			DisableAddOn("Tukui_Raid")
-			EnableAddOn("SnoUI_Raid_Healing")
+			EnableAddOn("Tukui_Raid_Healing")
 			ReloadUI()
-		elseif IsAddOnLoaded("SnoUI_Raid_Healing") then
-			DisableAddOn("SnoUIRaid_Healing")
+		elseif IsAddOnLoaded("Tukui_Raid_Healing") then
+			DisableAddOn("Tukui_Raid_Healing")
 			EnableAddOn("Tukui_Raid")
 			ReloadUI()
-		elseif not IsAddOnLoaded("SnoUI_Raid_Healing") and not IsAddOnLoaded("Tukui_Raid") then
+		elseif not IsAddOnLoaded("Tukui_Raid_Healing") and not IsAddOnLoaded("Tukui_Raid") then
 			EnableAddOn("Tukui_Raid")
 			ReloadUI()
 		end
