@@ -20,6 +20,10 @@ C["unitframes"] = {
 	["gridhealthvertical"] = false,
 }
 
+C["merchant"] = {
+	["autorepair"] = true,
+	["guildrepair"] = true,
+}
 C["actionbar"] = {
 	["hideshapeshift"] = false,
 	["hotkey"] = false,
