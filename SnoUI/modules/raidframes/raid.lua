@@ -31,13 +31,6 @@ local function EditUnitFrame(frame, header)
 		name:SetFont(C.media.uffont, 14, "THINOUTLINE")
 		health.colorClass = true
 		power.colorPower = true
-		
-		local LFDRole = health:CreateTexture(nil, "OVERLAY")
-	    LFDRole:Height(6*T.raidscale)
-	    LFDRole:Width(6*T.raidscale)
-		LFDRole:Point("TOPLEFT", 2, -2)
-		-- LFDRole:SetTexture("Interface\\AddOns\\Tukui\\medias\\textures\\lfdicons.blp")
-		self.LFDRole = LFDRole	
 		raiddebuff:Height(16)
 		raiddebuff:Width(16)
 	end
