@@ -21,7 +21,8 @@ C["unitframes"] = {
 }
 
 C["merchant"] = {
-	["autorepair"] = true,
+	["autorepair"] = false,
+	["snoautorepair"] = true,
 	["guildrepair"] = true,
 }
 C["actionbar"] = {
@@ -69,6 +70,10 @@ C["chat"] = {
 }
 C["bags"] = {
 	["enable"] = false,
+}
+C["auras"] = {
+	["player"] = true,                                  -- enable tukui buffs/debuffs
+	["consolidate"] = false,                             -- enable downpdown menu with consolidate buff
 }
 
 C["media"] = {
