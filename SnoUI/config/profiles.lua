@@ -28,7 +28,7 @@ end
 
 if T.myclass == "DRUID" then
 	C.nameplate.enhancethreat = true
-	C.unitframes.gcd = true
+	C.unitframes.gcd = false
 	C.datatext.haste = 0
 	C.datatext.power = 0
 	C.datatext.armor = 7
