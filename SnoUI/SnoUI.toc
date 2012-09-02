@@ -2,7 +2,7 @@
 ## Title: |cffFFFFFFSnoUI|r
 ## Notes: Snomead edited version of Tukui.
 ## Author: Snomead
-## Version: 1.5.0.5
+## Version: 1.5.0.6
 ## RequiredDeps: SnoUI_Config, Tukui
 
 SnoUI.xml
