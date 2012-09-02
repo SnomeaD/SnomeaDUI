@@ -16,7 +16,6 @@ if T.myclass == "DEATHKNIGHT" then
 	C.datatext.power = 0
 	C.datatext.armor = 7
 	C.datatext.avd = 8
-	C.unitframes.gcd = true
 end
 
 if T.myclass == "WARRIOR" then
@@ -25,7 +24,6 @@ if T.myclass == "WARRIOR" then
 	C.datatext.power = 0
 	C.datatext.armor = 7
 	C.datatext.avd = 8
-	C.unitframes.gcd = true
 end
 
 if T.myclass == "DRUID" then
@@ -42,7 +40,6 @@ if T.myclass == "PALADIN" then
 	C.datatext.power = 0
 	C.datatext.armor = 7
 	C.datatext.avd = 8
-	C.unitframes.gcd = true
 end
 
 if T.myclass == "HUNTER" then
@@ -52,9 +49,7 @@ end
 if T.myclass == "SHAMAN" then
 	C.datatext.haste = 0
 	C.datatext.crit = 8
-	C.unitframes.gcd = true
 end
 if T.myclass == "ROGUE" then
-	C.unitframes.gcd = true
 	C.actionbar.hideshapeshift = true
 end

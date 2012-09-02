@@ -17,14 +17,9 @@ TukuiBar4:ClearAllPoints()
 TukuiBar5:ClearAllPoints()
 
 -- Force to show bottoms bars
-local db = TukuiDataPerChar
-
 TukuiBar1:Show()
 TukuiBar2:Show()
 TukuiBar3:Show()
-db.hidebar1 = false
-db.hidebar2 = false
-db.hidebar3 = false
 
 UnregisterStateDriver(TukuiBar4, "visibility")
 UnregisterStateDriver(TukuiBar5, "visibility")
@@ -88,9 +83,8 @@ local function HideSideBar()
 	
 	TukuiPetBar:ClearAllPoints()
 	TukuiBar4:Hide()
-	db.hidebar4 = true
 	TukuiBar5:Hide()
-	db.hidebar5 = true
+
 	TukuiPetBar:Point("RIGHT", UIParent, "RIGHT", -14, 0)
 	UnregisterStateDriver(TukuiBar4, "visibility")
 	UnregisterStateDriver(TukuiBar5, "visibility")
@@ -104,15 +98,14 @@ local function HideSideBar()
 	
 end
 local function ShowSideBar()
-	-- TukuiBar2:Show()
 	if not TukuiDataPerChar then TukuiDataPerChar = {} end
 	local db = TukuiDataPerChar
 	local buttonTop = SnoUISideBarButtonTop
 	local buttonBottom = SnoUISideBarButtonBottom
 	TukuiPetBar:ClearAllPoints()
-	db.hidebar4 = false
+
 	TukuiBar4:Show()
-	db.hidebar5 = false
+
 	RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle][overridebar][combat] hide; show" )
 	RegisterStateDriver( TukuiBar5, "visibility", "[vehicleui][petbattle][overridebar][combat] hide; show" )
 
