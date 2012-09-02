@@ -16,13 +16,17 @@ C["unitframes"] = {
 	["gridvertical"] = false,
 	["healcomm"] = true,
 	["showplayerinparty"] = true,
-	["weakenedsoulbar"] = false,                         -- show weakened soul bar
+	["weakenedsoulbar"] = false,
 	["gridhealthvertical"] = false,
+	["showraidpets"] = false,
+	["raidalphaoor"] = 0.5,
+}
+C["auras"] = {
+	["classictimer"] = true,                           -- Display classic timer on player auras.
 }
 
 C["merchant"] = {
-	["autorepair"] = false,
-	["snoautorepair"] = true,
+	["autorepair"] = true,
 	["guildrepair"] = true,
 }
 C["actionbar"] = {
@@ -70,10 +74,6 @@ C["chat"] = {
 }
 C["bags"] = {
 	["enable"] = false,
-}
-C["auras"] = {
-	["player"] = true,                                  -- enable tukui buffs/debuffs
-	["consolidate"] = false,                             -- enable downpdown menu with consolidate buff
 }
 
 C["media"] = {

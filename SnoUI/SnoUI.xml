@@ -28,5 +28,5 @@
 	<Script file="modules\unitframes\focustarget.lua"/>
 	<Script file="modules\unitframes\pet.lua"/>
 	<Script file="modules\unitframes\layout.lua"/>
-	<Script file="modules\raidframes\raid.lua"/>
+	<Script file="modules\raidframes\raid.lua"/> 
 </Ui>

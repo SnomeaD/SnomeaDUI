@@ -42,7 +42,7 @@ f:SetScript("OnEvent", function()
 		end
 	end
 	if not IsShiftKeyDown() then
-		if CanMerchantRepair() and C["merchant"].snoautorepair then
+		if CanMerchantRepair() and C["merchant"].autorepair then
 			local cost, possible = GetRepairAllCost()
 			if C["merchant"].guildrepair then
 				if (IsInGuild()) and (CanGuildBankRepair()) then

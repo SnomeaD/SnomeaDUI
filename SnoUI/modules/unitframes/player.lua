@@ -72,7 +72,7 @@ if( T.level ~= MAX_PLAYER_LEVEL ) then
 	Experience:Height( 7 )
 	Experience:ClearAllPoints()
 	Experience:Point( "TOP", TukuiMinimap, "BOTTOM", 0, -6 )
-	Experience:SetFrameLevel( 12 )
+	Experience:SetFrameLevel( 2 )
 	Experience:SetAlpha( 1 )
 	Experience:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
 	Experience.bg = CreateFrame("Frame", nil, Experience)
@@ -80,7 +80,7 @@ if( T.level ~= MAX_PLAYER_LEVEL ) then
 	Experience.bg:CreateBorder(false, true)
 	Experience.bg:SetPoint("TOPLEFT", -2, 2)
 	Experience.bg:SetPoint("BOTTOMRIGHT", 2, -2)
-	Experience.bg:SetFrameLevel(3)
+	Experience.bg:SetFrameLevel(1)
 	Resting:SetTexture( nil )
 end
 
@@ -89,7 +89,7 @@ if( T.level == MAX_PLAYER_LEVEL ) then
 	Reputation:Height( 7 )
 	Reputation:ClearAllPoints()
 	Reputation:Point( "TOP", TukuiMinimap, "BOTTOM", 0, -6 )
-	Reputation:SetFrameLevel( 10 )
+	Reputation:SetFrameLevel( 2 )
 	Reputation:SetAlpha( 1 )
 	Reputation:HookScript( "OnLeave", function( self ) self:SetAlpha( 1 ) end )
 	Reputation.bg = CreateFrame("Frame", nil, Reputation)
@@ -97,7 +97,7 @@ if( T.level == MAX_PLAYER_LEVEL ) then
 	Reputation.bg:CreateBorder(false, true)
 	Reputation.bg:SetPoint("TOPLEFT", -2, 2)
 	Reputation.bg:SetPoint("BOTTOMRIGHT", 2, -2)
-	Reputation.bg:SetFrameLevel(3)
+	Reputation.bg:SetFrameLevel(1)
 end
 
 

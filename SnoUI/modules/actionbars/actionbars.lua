@@ -1,4 +1,4 @@
-local T, C, L = unpack(Tukui)
+local T, C, L, G = unpack(Tukui)
 
 if not C.actionbar.enable == true then return end
 
@@ -16,27 +16,50 @@ TukuiBar3:ClearAllPoints()
 TukuiBar4:ClearAllPoints()
 TukuiBar5:ClearAllPoints()
 
--- Remove backdrop for Bar2. The Bar2 is in the Bar1's backdrops and set width
-TukuiBar2:SetBackdrop(nil)
+-- Force to show bottoms bars
+local db = TukuiDataPerChar
+
+TukuiBar1:Show()
+TukuiBar2:Show()
+TukuiBar3:Show()
+db.hidebar1 = false
+db.hidebar2 = false
+db.hidebar3 = false
+
+UnregisterStateDriver(TukuiBar4, "visibility")
+UnregisterStateDriver(TukuiBar5, "visibility")
+
+if not C.actionbar.hideshapeshift then
+	G.ActionBars.Stance:ClearAllPoints()
+	G.ActionBars.Stance:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", 4, 160)
+else
+	G.ActionBars.Stance:SetAlpha(0)
+end
+
+-- Remove backdrop for Bar1. The Bar1 is in the Bar2's backdrops and set width
 TukuiBar2:SetWidth((T.buttonsize * 12) + (T.buttonspacing * 11)+10)
+TukuiBar2:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
+TukuiBar1:SetHeight((T.buttonsize * 1) + (T.buttonspacing * 3))
+
+
 if not T.lowversion then
 	TukuiBar1:SetPoint("BOTTOM", UIParent, "BOTTOM", -(((T.buttonsize * 6) + (T.buttonspacing * 7)+10)/2), 7)
+	TukuiBar3:SetPoint("BOTTOMLEFT", TukuiBar1, "BOTTOMRIGHT", 10, 0)
 else
 	TukuiBar1:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 7)
+	TukuiBar2:SetAlpha(1)
 end
-TukuiBar2:SetPoint("BOTTOM", TukuiBar1, "BOTTOM")
-TukuiBar3:SetPoint("BOTTOMLEFT", TukuiBar1, "BOTTOMRIGHT", 10, 0)
-
-
+TukuiBar2:SetPoint("BOTTOM", TukuiBar1, "BOTTOM",0,0)
 
 TukuiBar4:SetWidth((T.buttonsize * 1) + (T.buttonspacing * 2))
 TukuiBar4:SetHeight((T.buttonsize * 12) + (T.buttonspacing * 13))
-TukuiBar4:SetPoint("RIGHT", UIParent, "RIGHT", -8, -14)
-TukuiBar4:SetBackdrop(nil)
+TukuiBar4:SetPoint("LEFT", TukuiBar5, "RIGHT", -((T.buttonsize * 1) + (T.buttonspacing * 2)),0)
+TukuiBar4:SetFrameLevel(1)
 
-TukuiBar5:SetWidth((T.buttonsize * 2) + (T.buttonspacing * 3))
+TukuiBar5:SetWidth((T.buttonsize * 2) + (T.buttonspacing * 4))
 TukuiBar5:SetHeight((T.buttonsize * 12) + (T.buttonspacing * 13))
 TukuiBar5:SetPoint("RIGHT", UIParent, "RIGHT", -8, -14)
+TukuiBar5:SetFrameLevel(3)
 
 TukuiBar5ButtonTop:SetWidth(TukuiBar5:GetWidth())
 TukuiBar5ButtonBottom:SetWidth(TukuiBar5:GetWidth())
@@ -45,19 +68,9 @@ if not T.lowversion then
 	InvTukuiActionBarBackground:SetPoint("BOTTOMRIGHT", TukuiBar3)
 else
 	InvTukuiActionBarBackground:SetPoint("BOTTOMRIGHT", TukuiBar1)
-	TukuiBar2:Show()
-	TukuiBar2:SetAlpha(1)
 end
 InvTukuiActionBarBackground:SetPoint("TOPLEFT", TukuiBar2)
-
-
-
-if not C.actionbar.hideshapeshift == true then 
-	TukuiShiftBar:ClearAllPoints()
-	TukuiShiftBar:Point("BOTTOMLEFT", UIParent,"BOTTOMLEFT", 6, 160)
-else
-	TukuiShiftBar:Hide()
-end
+InvTukuiActionBarBackground:SetAlpha(0)
 
 -- kill the show/hide button because they doesn't fit my new bar layout
 TukuiBar2Button:Kill()
@@ -65,18 +78,6 @@ TukuiBar3Button:Kill()
 TukuiBar4Button:Kill()
 TukuiBar5ButtonTop:Kill()
 TukuiBar5ButtonBottom:Kill()
-
--- Move and resize the button to exit vehicle
-TukuiExitVehicleButtonLeft:ClearAllPoints()
-TukuiExitVehicleButtonLeft:SetSize(14, (T.buttonsize) + (T.buttonspacing * 2))
-if T.lowversion then
-	TukuiExitVehicleButtonLeft:SetPoint("BOTTOMLEFT", TukuiBar2, "BOTTOMRIGHT", 2, 0)
-else
-	TukuiExitVehicleButtonLeft:SetPoint("BOTTOMLEFT", TukuiBar3, "BOTTOMRIGHT", 2, 0)
-end
-TukuiExitVehicleButtonRight:ClearAllPoints()
-TukuiExitVehicleButtonRight:SetSize(14, (T.buttonsize) + (T.buttonspacing * 2))
-TukuiExitVehicleButtonRight:SetPoint("BOTTOMRIGHT", TukuiBar1, "BOTTOMLEFT", -2, 0)
 
 -- Function to hide/show sidebar
 local function HideSideBar()
@@ -91,6 +92,8 @@ local function HideSideBar()
 	TukuiBar5:Hide()
 	db.hidebar5 = true
 	TukuiPetBar:Point("RIGHT", UIParent, "RIGHT", -14, 0)
+	UnregisterStateDriver(TukuiBar4, "visibility")
+	UnregisterStateDriver(TukuiBar5, "visibility")
 
 	-- Move/hide button
 	buttonTop:Hide()
@@ -101,7 +104,7 @@ local function HideSideBar()
 	
 end
 local function ShowSideBar()
-	TukuiBar2:Show()
+	-- TukuiBar2:Show()
 	if not TukuiDataPerChar then TukuiDataPerChar = {} end
 	local db = TukuiDataPerChar
 	local buttonTop = SnoUISideBarButtonTop
@@ -110,6 +113,9 @@ local function ShowSideBar()
 	db.hidebar4 = false
 	TukuiBar4:Show()
 	db.hidebar5 = false
+	RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle][overridebar][combat] hide; show" )
+	RegisterStateDriver( TukuiBar5, "visibility", "[vehicleui][petbattle][overridebar][combat] hide; show" )
+
 	TukuiBar5:Show()
 	TukuiPetBar:Point("RIGHT", TukuiBar5, "LEFT", -6, 0)
 	buttonTop:ClearAllPoints()
@@ -161,18 +167,6 @@ SnoUISideBarButtonBottom.text = T.SetFontString(SnoUISideBarButtonBottom, C.medi
 SnoUISideBarButtonBottom.text:Point("CENTER", 1, 1)
 SnoUISideBarButtonBottom.text:SetText("|cff4BAF4C>|r")
 
-local sidebarHide = CreateFrame("Frame")
-
-sidebarHide:RegisterEvent("PLAYER_REGEN_DISABLED")
-sidebarHide:RegisterEvent("UNIT_ENTERING_VEHICLE")
-sidebarHide:RegisterEvent("UNIT_ENTERED_VEHICLE")
-sidebarHide:SetScript("OnEvent", HideSideBar)
-
-local sidebarShow = CreateFrame("Frame")
-sidebarShow:RegisterEvent("PLAYER_REGEN_ENABLED")
-sidebarShow:RegisterEvent("UNIT_EXITING_VEHICLE")
-sidebarShow:RegisterEvent("UNIT_EXITED_VEHICLE")
-sidebarShow:SetScript("OnEvent", ShowSideBar)
 
 
 local ButtonStyle = function(self)

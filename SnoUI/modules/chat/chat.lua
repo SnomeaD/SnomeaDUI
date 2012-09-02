@@ -58,8 +58,8 @@ local function SetupChat( self )
 	ChatFrame_AddMessageGroup(ChatFrame1, "IGNORED")
 	ChatFrame_AddMessageGroup(ChatFrame1, "ACHIEVEMENT")
 	ChatFrame_AddMessageGroup(ChatFrame1, "BN_CONVERSATION")
-	-- ChatFrame_AddMessageGroup(ChatFrame1, "BN_WHISPER")
-	-- ChatFrame_AddMessageGroup(ChatFrame1, "WHISPER")
+	ChatFrame_AddMessageGroup(ChatFrame1, "BN_WHISPER")
+	ChatFrame_AddMessageGroup(ChatFrame1, "WHISPER")
 	
 	-- Setup the right chat
 	FCF_SetWindowName(ChatFrame3, "Flood")

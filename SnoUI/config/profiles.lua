@@ -1,4 +1,4 @@
-local T, C, L = unpack(Tukui)
+local T, C, L, G= unpack(Tukui)
 
 ----------------------------------------------------------------------------
 -- Per Class Config (overwrite general)
@@ -6,13 +6,20 @@ local T, C, L = unpack(Tukui)
 ----------------------------------------------------------------------------
 
 if T.myclass == "PRIEST" then
-	-- do some config!
-	-- C.unitframes.gcd = true
+	C.unitframes.gcd = false
 	C.actionbar.hideshapeshift = true
 end
 
+if T.myclass == "DEATHKNIGHT" then
+	C.nameplate.enhancethreat = true
+	C.datatext.haste = 0
+	C.datatext.power = 0
+	C.datatext.armor = 7
+	C.datatext.avd = 8
+	C.unitframes.gcd = true
+end
+
 if T.myclass == "WARRIOR" then
-	-- do some config!
 	C.nameplate.enhancethreat = true
 	C.datatext.haste = 0
 	C.datatext.power = 0
@@ -22,7 +29,6 @@ if T.myclass == "WARRIOR" then
 end
 
 if T.myclass == "DRUID" then
-	-- do some config!
 	C.nameplate.enhancethreat = true
 	C.unitframes.gcd = true
 	C.datatext.haste = 0
@@ -31,7 +37,6 @@ if T.myclass == "DRUID" then
 	C.datatext.avd = 8
 end
 if T.myclass == "PALADIN" then
-	-- do some config!
 	C.nameplate.enhancethreat = true
 	C.datatext.haste = 0
 	C.datatext.power = 0
@@ -41,18 +46,15 @@ if T.myclass == "PALADIN" then
 end
 
 if T.myclass == "HUNTER" then
-	-- do some config!
 	C.datatext.haste = 0
 	C.datatext.crit = 8
 end
 if T.myclass == "SHAMAN" then
-	-- do some config!
 	C.datatext.haste = 0
 	C.datatext.crit = 8
 	C.unitframes.gcd = true
 end
 if T.myclass == "ROGUE" then
-	-- do some config!
 	C.unitframes.gcd = true
 	C.actionbar.hideshapeshift = true
 end

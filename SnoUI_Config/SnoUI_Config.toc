@@ -1,8 +1,8 @@
-## Interface: 40300
+## Interface: 50001
 ## Title: |cffFFFFFFSnoUI Config|r
 ## Notes: Custom Default Configuration for SnoUI
 ## Author: SnomeaD
-## Version: 1.0
+## Version: 1.5.0.1
 
 
 config\config.lua

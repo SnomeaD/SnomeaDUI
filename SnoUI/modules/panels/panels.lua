@@ -1,4 +1,4 @@
-local T, C, L = unpack(Tukui)
+local T, C, L, G = unpack(Tukui)
 
 -- hide Panels we don't need.
 local lines = {TukuiInfoLeftLineVertical, TukuiInfoRightLineVertical, TukuiLineToABLeft, TukuiLineToABLeftAlt, TukuiLineToABRight, TukuiLineToABRightAlt, TukuiChatBackgroundRight, TukuiTabsRightBackground, TukuiLineToPetActionBarBackground, TukuiCubeLeft, TukuiCubeRight}
@@ -6,29 +6,19 @@ for _, panel in pairs(lines) do
 	panel:Hide()
 end
 
-if not C.actionbar.hideshapeshift == true then 
-	-- shapeshift bar
-	local ssborder = CreateFrame( "Frame", "ShapeShiftBorder", ShapeshiftButton1 )
-	ssborder:Point("LEFT", -T.buttonspacing, 0)
-	ssborder:SetTemplate("Default")
-	ssborder:SetFrameLevel(1)
-	ssborder:SetFrameStrata("BACKGROUND")
-
-	TukuiShapeShift:HookScript( "OnEvent", function( self, event, ... )
-		ShapeShiftBorder:Size((( ShapeshiftButton1:GetWidth() + T.buttonspacing) * GetNumShapeshiftForms()) + T.buttonspacing, ShapeshiftButton1:GetHeight() + 2 * T.buttonspacing)
-	end)
-end
-
 -- Bottom background
 local bottomBackground = CreateFrame("Frame", "TukuiBottomBar", UIParent)
-    bottomBackground:CreatePanel("Default", 1, 22, "TOP", UIParent, "TOP", 0, 0)
-    bottomBackground:ClearAllPoints()
-    bottomBackground:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", T.Scale(-6), T.Scale(-6))
-    bottomBackground:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", T.Scale(6), T.Scale(-6))
-    bottomBackground:SetFrameStrata("BACKGROUND")
-    bottomBackground:SetFrameLevel(0)
-    bottomBackground:SetAlpha(.9)
-    bottomBackground:CreateShadow("Default")
+	bottomBackground:Size(1,22)
+	bottomBackground:SetTemplate("Default")
+	bottomBackground:Point("TOP", UIParent, "TOP", 0, 0)
+
+	bottomBackground:ClearAllPoints()
+	bottomBackground:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", T.Scale(-6), T.Scale(-6))
+	bottomBackground:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", T.Scale(6), T.Scale(-6))
+	bottomBackground:SetFrameStrata("BACKGROUND")
+	bottomBackground:SetFrameLevel(0)
+	bottomBackground:SetAlpha(.9)
+	bottomBackground:CreateShadow("Default")
 
 -- Move TukInfoPanel
 TukuiInfoRight:ClearAllPoints()
@@ -54,52 +44,15 @@ else
 end
 miniright:Width(72)
 
--- switch layout
-local UpdateLayoutTexture = function( self )
-	if( IsAddOnLoaded( "Tukui_Raid" ) ) then
-		newTex = C["media"].DPSTex
-	elseif( IsAddOnLoaded( "Tukui_Raid_Healing" ) ) then
-		newTex = C["media"].HealingTex
-	end
-	self.tex:SetTexture( newTex )
-end
 
-local SwitchLayoutButton = CreateFrame("Button", "TukuiSwitchLayoutButton", UIParent, "SecureActionButtonTemplate")
-	SwitchLayoutButton:CreatePanel( nil, 23, 23, "LEFT", TukuiInfoLeft, "RIGHT", -3, 0 )
-	SwitchLayoutButton:Point("LEFT", TukuiInfoLeft, "RIGHT", 3, 0)
-	SwitchLayoutButton:SetFrameStrata("BACKGROUND")
-	SwitchLayoutButton:SetFrameLevel(2)
-	SwitchLayoutButton.tex = SwitchLayoutButton:CreateTexture( nil, "ARTWORK" )
-	SwitchLayoutButton.tex:Point( "TOPLEFT", 2, -2 )
-	SwitchLayoutButton.tex:Point( "BOTTOMRIGHT", -2, 2 )
-	SwitchLayoutButton.tex:SetTexCoord( 0.08, 0.92, 0.08, 0.92 )
-	
-	SwitchLayoutButton:RegisterEvent( "PLAYER_ENTERING_WORLD" )
-	SwitchLayoutButton:SetScript( "OnEvent", UpdateLayoutTexture )
-	SwitchLayoutButton:RegisterForClicks( "AnyUp" )
-	SwitchLayoutButton:SetScript("OnClick", function()
-		if IsAddOnLoaded("Tukui_Raid") then
-			DisableAddOn("Tukui_Raid")
-			EnableAddOn("Tukui_Raid_Healing")
-			ReloadUI()
-		elseif IsAddOnLoaded("Tukui_Raid_Healing") then
-			DisableAddOn("Tukui_Raid_Healing")
-			EnableAddOn("Tukui_Raid")
-			ReloadUI()
-		elseif not IsAddOnLoaded("Tukui_Raid_Healing") and not IsAddOnLoaded("Tukui_Raid") then
-			EnableAddOn("Tukui_Raid")
-			ReloadUI()
-		end
-	end)
-
-
-
-
--- Hydra Spec Button!
+-- Hydra/Sno Spec Button!
 if UnitLevel("player") <= 10 then return end
 
 local SwitchTemplateButton = CreateFrame( "Button", "SwitchTemplateButton", UIParent, "SecureActionButtonTemplate" )
-	SwitchTemplateButton:CreatePanel(nil, 23, 23, "RIGHT", TukuiInfoRight, "LEFT", -3, 0)
+	SwitchTemplateButton:Size(23,22)
+	SwitchTemplateButton:SetTemplate("Default")
+	SwitchTemplateButton:Point("RIGHT", TukuiInfoRight, "LEFT", -3, 0)
+
 	SwitchTemplateButton:SetFrameLevel( 2 )
 	SwitchTemplateButton:SetFrameStrata( "BACKGROUND" )
 
@@ -109,26 +62,27 @@ local SwitchTemplateButton = CreateFrame( "Button", "SwitchTemplateButton", UIPa
 	SwitchTemplateButton.tex:SetTexCoord( 0.08, 0.92, 0.08, 0.92 )
 
 	SwitchTemplateButton:SetScript( "OnClick", function( self )
-		local i = GetActiveTalentGroup()
+		local spec = GetActiveSpecGroup()
 		if( IsModifierKeyDown() ) then
 			ToggleTalentFrame()
 		else
-			if( i == 1 ) then 
-				SetActiveTalentGroup( 2 )
+			if( spec == 1 ) then 
+				SetActiveSpecGroup( 2 )
 			end
-			if( i == 2 ) then
-				SetActiveTalentGroup( 1 )
+			if( spec == 2 ) then
+				SetActiveSpecGroup( 1 )
 			end
 		end
 	end )
 
 local UpdateTexture = function( self )
-	if not GetPrimaryTalentTree() then return end
-
-	local primary = GetPrimaryTalentTree()
-	local tex = select( 4, GetTalentTabInfo( primary ) )
-
-	self.tex:SetTexture( tex )
+	if not GetSpecialization() then
+		self.tex:SetTexture(select(4, GetSpecializationInfo(0)))
+	else
+		local tree = GetSpecialization()
+		local currentSpecIcon = tree and select(4, GetSpecializationInfo(tree)) or "None"
+		self.tex:SetTexture(currentSpecIcon)
+	end
 end
 
 SwitchTemplateButton:RegisterEvent( "PLAYER_ENTERING_WORLD" )

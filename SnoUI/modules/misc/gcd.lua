@@ -60,11 +60,7 @@ if not gcdbar then
 	gcdbar:SetBackdropColor(.1,.1,.1)
 	gcdbar:SetAlpha(0.8)
 	gcdbar:SetScale(1)
-	if (T.myclass == "DRUID" or T.myclass == "WARLOCK" or T.myclass == "SHAMAN" or T.myclass == "PALADIN" or T.myclass == "WARLOCK" or T.myclass == "DEATHKNIGHT") then
-		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 12)
-	else
-		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 4)
-	end
+	gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 12)
 	gcdspark = gcdbar:CreateTexture(nil, "DIALOG")	
 	gcdspark:SetWidth(3)
 	gcdspark:SetHeight(8)
