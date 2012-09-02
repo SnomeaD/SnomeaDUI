@@ -76,7 +76,7 @@ end
 do
 	if( C["unitframes"].unitcastbar == true ) then
 		castbar:ClearAllPoints()
-		castbar:SetPoint( "BOTTOMLEFT", TukuiTarget, "TOPLEFT", 0, 104 )
+		castbar:SetPoint( "BOTTOMLEFT", TukuiTarget, "TOPLEFT", 0, 118 )
 		if C["unitframes"].cbicons == true then
 			castbar:Size( TukuiTarget:GetWidth() - 24, 16 )
 		else

@@ -23,6 +23,9 @@ TukuiBar3:Show()
 
 UnregisterStateDriver(TukuiBar4, "visibility")
 UnregisterStateDriver(TukuiBar5, "visibility")
+RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle][overridebar][combat] hide; show" )
+RegisterStateDriver( TukuiBar5, "visibility", "[vehicleui][petbattle][overridebar][combat] hide; show" )
+
 
 if not C.actionbar.hideshapeshift then
 	G.ActionBars.Stance:ClearAllPoints()
@@ -105,10 +108,6 @@ local function ShowSideBar()
 	TukuiPetBar:ClearAllPoints()
 
 	TukuiBar4:Show()
-
-	RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle][overridebar][combat] hide; show" )
-	RegisterStateDriver( TukuiBar5, "visibility", "[vehicleui][petbattle][overridebar][combat] hide; show" )
-
 	TukuiBar5:Show()
 	TukuiPetBar:Point("RIGHT", TukuiBar5, "LEFT", -6, 0)
 	buttonTop:ClearAllPoints()
