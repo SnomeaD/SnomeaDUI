@@ -37,7 +37,7 @@ end
 -- Remove backdrop for Bar1. The Bar1 is in the Bar2's backdrops and set width
 TukuiBar2:SetWidth((T.buttonsize * 12) + (T.buttonspacing * 11)+10)
 TukuiBar2:SetHeight((T.buttonsize * 2) + (T.buttonspacing * 3))
-TukuiBar1:SetHeight((T.buttonsize * 1) + (T.buttonspacing * 3))
+TukuiBar1:SetHeight((T.buttonsize * 1) + (T.buttonspacing * 2))
 
 
 if not T.lowversion then
