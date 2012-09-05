@@ -22,7 +22,8 @@ C["unitframes"] = {
 	["raidalphaoor"] = 0.5,
 }
 C["auras"] = {
-	["classictimer"] = true,                           -- Display classic timer on player auras.
+	["classictimer"] = true,
+	["consolidate"] = true,
 }
 
 C["merchant"] = {
