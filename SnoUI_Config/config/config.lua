@@ -27,8 +27,8 @@ C["auras"] = {
 }
 
 C["merchant"] = {
-	["autorepair"] = true,
-	["guildrepair"] = true,
+	["autorepair"] = false,                           -- Need to be set false if you want to guild repair.
+	["guildrepair"] = true,                           -- Will auto guild repair is possible otherwise it'll use your personal funds
 }
 C["actionbar"] = {
 	["hideshapeshift"] = false,
