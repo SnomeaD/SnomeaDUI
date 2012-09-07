@@ -26,6 +26,17 @@ UnregisterStateDriver(TukuiBar5, "visibility")
 RegisterStateDriver( TukuiBar4, "visibility", "[vehicleui][petbattle][overridebar][combat] hide; show" )
 RegisterStateDriver( TukuiBar5, "visibility", "[vehicleui][petbattle][overridebar][combat] hide; show" )
 
+UnregisterStateDriver(TukuiPetBar, "visibility")
+RegisterStateDriver( TukuiPetBar, "SnoUI_position", "[vehicleui][petbattle][overridebar][combat] right; left" )
+TukuiPetBar:SetAttribute("_onstate-SnoUI_position", [[
+ if newstate == "right" then
+  	self:ClearAllPoints()
+	self:SetPoint("RIGHT", UIParent, "RIGHT", -14, -14)
+ elseif newstate == "left" then
+  	self:ClearAllPoints()
+	self:SetPoint("RIGHT", UIParent, "RIGHT", -84, -14)
+ end
+]]);
 
 if not C.actionbar.hideshapeshift then
 	G.ActionBars.Stance:ClearAllPoints()
@@ -79,8 +90,6 @@ TukuiBar5ButtonBottom:Kill()
 
 -- Function to hide/show sidebar
 local function HideSideBar()
-	if not TukuiDataPerChar then TukuiDataPerChar = {} end
-	local db = TukuiDataPerChar
 	local buttonTop = SnoUISideBarButtonTop
 	local buttonBottom = SnoUISideBarButtonBottom
 	
@@ -88,7 +97,7 @@ local function HideSideBar()
 	TukuiBar4:Hide()
 	TukuiBar5:Hide()
 
-	TukuiPetBar:Point("RIGHT", UIParent, "RIGHT", -14, 0)
+	TukuiPetBar:Point("RIGHT", UIParent, "RIGHT", -14, -14)
 	UnregisterStateDriver(TukuiBar4, "visibility")
 	UnregisterStateDriver(TukuiBar5, "visibility")
 
@@ -98,11 +107,9 @@ local function HideSideBar()
 	buttonBottom:SetSize(14, TukuiLineToPetActionBarBackground:GetHeight())
 	buttonBottom:Point("LEFT", TukuiPetBar, "RIGHT", 2, 0)
 	buttonBottom.text:SetText("|cff4BAF4C<|r")
-	
+	UnregisterStateDriver(TukuiPetBar, "SnoUI_position")
 end
 local function ShowSideBar()
-	if not TukuiDataPerChar then TukuiDataPerChar = {} end
-	local db = TukuiDataPerChar
 	local buttonTop = SnoUISideBarButtonTop
 	local buttonBottom = SnoUISideBarButtonBottom
 	TukuiPetBar:ClearAllPoints()
@@ -118,6 +125,18 @@ local function ShowSideBar()
 	buttonBottom:Size(TukuiBar5:GetWidth(), 17)
 	buttonBottom:Point("TOP", TukuiBar5, "BOTTOM", 0, -2)
 	buttonBottom.text:SetText("|cff4BAF4C>|r")
+
+	UnregisterStateDriver(TukuiPetBar, "SnoUI_position")
+	RegisterStateDriver( TukuiPetBar, "SnoUI_position", "[vehicleui][petbattle][overridebar][combat] right; left" )
+	TukuiPetBar:SetAttribute("_onstate-SnoUI_position", [[
+	 if newstate == "right" then
+	  	self:ClearAllPoints()
+		self:SetPoint("RIGHT", UIParent, "RIGHT", -14, -14)
+	 elseif newstate == "left" then
+	  	self:ClearAllPoints()
+		self:SetPoint("RIGHT", UIParent, "RIGHT", -84, -14)
+	 end
+	]]);
 end
 
 local function ShowHideSideBar()
