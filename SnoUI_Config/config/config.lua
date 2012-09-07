@@ -23,7 +23,7 @@ C["unitframes"] = {
 }
 C["auras"] = {
 	["classictimer"] = true,
-	["consolidate"] = true,
+	["consolidate"] = false,
 }
 
 C["merchant"] = {
