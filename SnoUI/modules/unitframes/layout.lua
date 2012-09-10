@@ -28,7 +28,11 @@ tot:ClearAllPoints()
 if T.lowversion then
 	player:Point("BOTTOMLEFT", InvTukuiActionBarBackground, "TOPLEFT", -44, 34)
 	target:Point("BOTTOMRIGHT", InvTukuiActionBarBackground, "TOPRIGHT", 44, 34)
-	tot:Point("BOTTOMRIGHT", TukuiTarget, "BOTTOMLEFT", -4, 0)
+	if C.general.nostromo == true then
+		tot:Point("BOTTOMRIGHT", TukuiTarget, "BOTTOMLEFT", -10, 0)
+	else
+		tot:Point("BOTTOMRIGHT", TukuiTarget, "BOTTOMLEFT", -4, 0)
+	end
 	pet:Point("BOTTOM", TukuiTargetTarget, "TOP", 0, 6)
 else
 	player:Point("BOTTOMLEFT", InvTukuiActionBarBackground, "TOPLEFT", -140, 34)

@@ -9,7 +9,6 @@ if not C.actionbar.enable == true then return end
 local bar = TukuiBar2
 MultiBarBottomLeft:SetParent(bar)
 
--- setup the bar
 for i=1, 12 do
 	local b = _G["MultiBarBottomLeftButton"..i]
 	local b2 = _G["MultiBarBottomLeftButton"..i-1]
