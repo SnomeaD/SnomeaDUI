@@ -3,6 +3,7 @@
 	<Script file="core\launch.lua" />
 	<Script file="config\profiles.lua"/>
 	<Script file="modules\blizzard\watchframe.lua"/>
+	<Script file="modules\actionbars\Bar1.lua"/>
 	<Script file="modules\actionbars\Bar2.lua"/>
 	<Script file="modules\actionbars\Bar3.lua"/>
 	<Script file="modules\actionbars\Bar4.lua"/>

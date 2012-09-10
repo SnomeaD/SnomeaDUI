@@ -2,6 +2,7 @@ local C = {}
 
 C["general"] = {
 	["blizzardreskin"] = true,
+	["nostromo"] = true
 }
 
 C["unitframes"] = {
