@@ -7,6 +7,7 @@ local T, C, L, G= unpack(Tukui)
 
 if T.myclass == "PRIEST" then
 	C.unitframes.gcd = false
+	C.unitframes.unitcastbar = false
 	C.actionbar.hideshapeshift = true
 end
 
@@ -19,11 +20,10 @@ if T.myclass == "DEATHKNIGHT" then
 end
 
 if T.myclass == "WARRIOR" then
-	C.nameplate.enhancethreat = true
 	C.datatext.haste = 0
-	C.datatext.power = 0
-	C.datatext.armor = 7
-	C.datatext.avd = 8
+	C.datatext.crit = 8
+	C.nameplate.enhancethreat = true
+	C.unitframes.gcd = true
 end
 
 if T.myclass == "DRUID" then

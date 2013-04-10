@@ -60,7 +60,11 @@ if not gcdbar then
 	gcdbar:SetBackdropColor(.1,.1,.1)
 	gcdbar:SetAlpha(0.8)
 	gcdbar:SetScale(1)
-	gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 12)
+	if T.myclass == "WARRIOR" then
+		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 6)
+	else
+		gcdbar:SetPoint("BOTTOM", player, "TOP", 0, 12)
+	end
 	gcdspark = gcdbar:CreateTexture(nil, "DIALOG")	
 	gcdspark:SetWidth(3)
 	gcdspark:SetHeight(8)

@@ -52,38 +52,45 @@ for i = 1, MAX_BOSS_FRAMES do
 	---------------------------------------------------------------------------------------------
 	-- castbar
 	---------------------------------------------------------------------------------------------
-	do
+	if( C["unitframes"].unitcastbar == true ) then
+
+		do
+			castbar:ClearAllPoints()
+			castbar:Point( "TOPRIGHT", health, "BOTTOMRIGHT", 0, -12 )
+			if C["unitframes"].cbicons == true then
+				castbar:Size( unit:GetWidth() - 24, 16 )
+			else
+				castbar:Size( unit:GetWidth(), 16 )
+			end
+			castbar:CreateBorder( true )
+
+			if C["unitframes"].cbicons == true then
+				castbar.button:ClearAllPoints()
+				castbar.button:SetPoint( "LEFT", castbar, -26, 0 )
+				castbar.button:Size( 20, 20 )
+				castbar.button:CreateShadow( "Default" )
+			else
+				scastbar.button:Kill()
+			end
+
+			castbar.Text:SetFont( C["media"].uffont, 12, "THINOUTLINE" )
+			castbar.Text:SetParent( castbar )
+			castbar.Text:ClearAllPoints()
+			castbar.Text:SetPoint( "LEFT", castbar, "LEFT", 5, 0 )
+			castbar.Text.ClearAllPoints = T.dummy
+			castbar.Text.SetPoint = T.dummy
+
+			castbar.time:SetFont( C["media"].uffont, 12, "THINOUTLINE" )
+			castbar.time:SetParent( castbar )
+			castbar.time:ClearAllPoints()
+			castbar.time:SetPoint( "RIGHT", castbar, "RIGHT", -5, 0 )
+			castbar.time.ClearAllPoints = T.dummy
+			castbar.time.SetPoint = T.dummy
+		end
+	else
 		castbar:ClearAllPoints()
-		castbar:Point( "TOPRIGHT", health, "BOTTOMRIGHT", 0, -12 )
-		if C["unitframes"].cbicons == true then
-			castbar:Size( unit:GetWidth() - 24, 16 )
-		else
-			castbar:Size( unit:GetWidth(), 16 )
-		end
-		castbar:CreateBorder( true )
-
-		if C["unitframes"].cbicons == true then
-			castbar.button:ClearAllPoints()
-			castbar.button:SetPoint( "LEFT", castbar, -26, 0 )
-			castbar.button:Size( 20, 20 )
-			castbar.button:CreateShadow( "Default" )
-		else
-			scastbar.button:Kill()
-		end
-
-		castbar.Text:SetFont( C["media"].uffont, 12, "THINOUTLINE" )
-		castbar.Text:SetParent( castbar )
+		castbar.Time:ClearAllPoints()
 		castbar.Text:ClearAllPoints()
-		castbar.Text:SetPoint( "LEFT", castbar, "LEFT", 5, 0 )
-		castbar.Text.ClearAllPoints = T.dummy
-		castbar.Text.SetPoint = T.dummy
-
-		castbar.time:SetFont( C["media"].uffont, 12, "THINOUTLINE" )
-		castbar.time:SetParent( castbar )
-		castbar.time:ClearAllPoints()
-		castbar.time:SetPoint( "RIGHT", castbar, "RIGHT", -5, 0 )
-		castbar.time.ClearAllPoints = T.dummy
-		castbar.time.SetPoint = T.dummy
 	end
 
 

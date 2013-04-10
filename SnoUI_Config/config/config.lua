@@ -36,7 +36,7 @@ C["actionbar"] = {
 	["hotkey"] = false,
 }
 C["error"] = {
-	["enable"] = false,
+	["enable"] = true,
 }
 C["chat"] = {
 	["background"] = false,

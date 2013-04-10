@@ -135,6 +135,10 @@ if( C["unitframes"].unitcastbar == true ) then
 	Castbar.bg:SetPoint("TOPLEFT", -2, 2)
 	Castbar.bg:SetPoint("BOTTOMRIGHT", 2, -2)
 	Castbar.bg:SetFrameLevel(3)
+else
+	Castbar:ClearAllPoints()
+	Castbar.Time:ClearAllPoints()
+	Castbar.Text:ClearAllPoints()
 end
 
 ---------------------------------------------------------------------------------------------

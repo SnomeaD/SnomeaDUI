@@ -101,6 +101,10 @@ do
 		castbar.bg:SetPoint("TOPLEFT", -2, 2)
 		castbar.bg:SetPoint("BOTTOMRIGHT", 2, -2)
 		castbar.bg:SetFrameLevel(3)
+	else
+		castbar:ClearAllPoints()
+		castbar.Time:ClearAllPoints()
+		castbar.Text:ClearAllPoints()
 	end
 end
 
@@ -108,79 +112,82 @@ end
 -- combopoints
 ---------------------------------------------------------------------------------------------
 do
-	TukuiTarget:DisableElement( "CPoints" )
-	for i = 1, 5 do TukuiTarget.CPoints[i]:Hide() end
+	if( C["unitframes"].classiccombo == true ) then
 
-	local colors = {
-		{ .69, .31, .31, 1 },
-		{ .65, .42, .31, 1 },
-		{ .65, .63, .35, 1 },
-		{ .46, .63, .35, 1 },
-		{ .33, .63, .33, 1 },
-	}
+		TukuiTarget:DisableElement( "CPoints" )
+		for i = 1, 5 do TukuiTarget.CPoints[i]:Hide() end
 
-	local classbar = CreateFrame( "Frame", "Classbar", UIParent )
-	classbar:Width( TukuiTarget:GetWidth() )
-	classbar:Height( 8 )
-	classbar:Point( "BOTTOM", TukuiTarget, "TOP", 0, 5 )
-	classbar:SetBackdropBorderColor( 0, 0, 0, 0 )
-	classbar:SetTemplate( "Default" )
-	classbar:CreateShadow( "Default" )
+		local colors = {
+			{ .69, .31, .31, 1 },
+			{ .65, .42, .31, 1 },
+			{ .65, .63, .35, 1 },
+			{ .46, .63, .35, 1 },
+			{ .33, .63, .33, 1 },
+		}
 
-	local points = {}
+		local classbar = CreateFrame( "Frame", "Classbar", UIParent )
+		classbar:Width( TukuiTarget:GetWidth() )
+		classbar:Height( 8 )
+		classbar:Point( "BOTTOM", TukuiTarget, "TOP", 0, 5 )
+		classbar:SetBackdropBorderColor( 0, 0, 0, 0 )
+		classbar:SetTemplate( "Default" )
+		classbar:CreateShadow( "Default" )
 
-	for i = 1, 5 do
-		points[i] = CreateFrame( "StatusBar", "Classbar_Power" .. i, classbar )
-		points[i]:SetWidth( ( ( TukuiPlayer:GetWidth() + 4 ) - 8 ) / 5 )
-		points[i]:SetHeight( 4 )
-		points[i].tex = points[i]:CreateTexture( nil, "OVERLAY" )
-		points[i].tex:SetTexture( C["media"].normTex )
-		points[i].tex:SetVertexColor( unpack( colors[i] ) )
-		points[i].tex:SetAllPoints( points[i] )
+		local points = {}
 
-		if( points[i]:GetHeight() > points[i]:GetWidth() ) then
-			points[i]:SetOrientation( "VERTICAL" )
-		else
-			points[i]:SetOrientation("HORIZONTAL")
-		end
+		for i = 1, 5 do
+			points[i] = CreateFrame( "StatusBar", "Classbar_Power" .. i, classbar )
+			points[i]:SetWidth( ( ( TukuiPlayer:GetWidth() + 4 ) - 8 ) / 5 )
+			points[i]:SetHeight( 4 )
+			points[i].tex = points[i]:CreateTexture( nil, "OVERLAY" )
+			points[i].tex:SetTexture( C["media"].normTex )
+			points[i].tex:SetVertexColor( unpack( colors[i] ) )
+			points[i].tex:SetAllPoints( points[i] )
 
-		if( i == 1 ) then
-			points[i]:SetPoint( "LEFT", classbar, "LEFT", 2, 0 )
-		else
-			points[i]:SetPoint( "LEFT", points[i - 1], "RIGHT", 1, 0 )
-		end
+			if( points[i]:GetHeight() > points[i]:GetWidth() ) then
+				points[i]:SetOrientation( "VERTICAL" )
+			else
+				points[i]:SetOrientation("HORIZONTAL")
+			end
 
-		points[i]:RegisterEvent( "PLAYER_ENTERING_WORLD" )
-		points[i]:RegisterEvent( "UNIT_COMBO_POINTS" )
-		points[i]:RegisterEvent( "PLAYER_TARGET_CHANGED" )
-		points[i]:SetScript( "OnEvent", function( self, event )
-			
-			local numpoints, pt = 0, GetComboPoints( "player", "target" )
-			if pt == numpoints then
-				classbar:Hide()
-				points[i]:Hide()
+			if( i == 1 ) then
+				points[i]:SetPoint( "LEFT", classbar, "LEFT", 2, 0 )
+			else
+				points[i]:SetPoint( "LEFT", points[i - 1], "RIGHT", 1, 0 )
+			end
+
+			points[i]:RegisterEvent( "PLAYER_ENTERING_WORLD" )
+			points[i]:RegisterEvent( "UNIT_COMBO_POINTS" )
+			points[i]:RegisterEvent( "PLAYER_TARGET_CHANGED" )
+			points[i]:SetScript( "OnEvent", function( self, event )
 				
-				if( C["unitframes"].targetauras == true ) then
-					TukuiTarget.Buffs:ClearAllPoints()
-					TukuiTarget.Buffs:SetPoint( "BOTTOMLEFT", TukuiTarget, "TOPLEFT", -2, 4 )
-				end
-			elseif pt > numpoints then
-				classbar:Show()
-				for i = numpoints + 1, pt do
-					points[i]:Show()
-
+				local numpoints, pt = 0, GetComboPoints( "player", "target" )
+				if pt == numpoints then
+					classbar:Hide()
+					points[i]:Hide()
+					
 					if( C["unitframes"].targetauras == true ) then
 						TukuiTarget.Buffs:ClearAllPoints()
-						TukuiTarget.Buffs:SetPoint( "BOTTOMLEFT", TukuiTarget, "TOPLEFT", -2, 16 )
+						TukuiTarget.Buffs:SetPoint( "BOTTOMLEFT", TukuiTarget, "TOPLEFT", -2, 4 )
+					end
+				elseif pt > numpoints then
+					classbar:Show()
+					for i = numpoints + 1, pt do
+						points[i]:Show()
+
+						if( C["unitframes"].targetauras == true ) then
+							TukuiTarget.Buffs:ClearAllPoints()
+							TukuiTarget.Buffs:SetPoint( "BOTTOMLEFT", TukuiTarget, "TOPLEFT", -2, 16 )
+						end
+					end
+				else
+					for i = pt + 1, numpoints do
+						points[i]:Hide()
 					end
 				end
-			else
-				for i = pt + 1, numpoints do
-					points[i]:Hide()
-				end
-			end
-			numpoints = pt
-		end )
+				numpoints = pt
+			end )
+		end
 	end
 end
 

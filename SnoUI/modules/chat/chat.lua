@@ -60,7 +60,9 @@ local function SetupChat( self )
 	ChatFrame_AddMessageGroup(ChatFrame1, "BN_CONVERSATION")
 	ChatFrame_AddMessageGroup(ChatFrame1, "BN_WHISPER")
 	ChatFrame_AddMessageGroup(ChatFrame1, "WHISPER")
-	
+	ChatFrame_AddMessageGroup(ChatFrame1, "INSTANCE_CHAT_LEADER")
+	ChatFrame_AddMessageGroup(ChatFrame1, "INSTANCE_CHAT")
+
 	-- Setup the right chat
 	FCF_SetWindowName(ChatFrame3, "Flood")
 	ChatFrame_RemoveAllMessageGroups(ChatFrame3)

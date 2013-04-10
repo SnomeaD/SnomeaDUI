@@ -97,6 +97,10 @@ do
 		castbar.time:SetPoint( "RIGHT", castbar, "RIGHT", -5, 0 )
 		castbar.time.ClearAllPoints = T.dummy
 		castbar.time.SetPoint = T.dummy
+	else
+		castbar:ClearAllPoints()
+		castbar.Time:ClearAllPoints()
+		castbar.Text:ClearAllPoints()
 	end
 end
 
