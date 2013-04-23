@@ -79,14 +79,14 @@ C["bags"] = {
 }
 
 C["media"] = {
-	-- ["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\Minimalist]],
-	["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\Smooth]],
-	-- ["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\sinaris]],
-	-- ["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\statusbar256]],
-	-- ["normTex"] = [[Interface\AddOns\SnoUI\medias\textures\button_gloss]],
-	["DPSTex"] = [[Interface\AddOns\SnoUI\medias\textures\switch_layout_dd]],
-	["HealingTex"] = [[Interface\AddOns\SnoUI\medias\textures\switch_layout_heal]],
-	["gloss"] = [[Interface\AddOns\SnoUI\medias\textures\button_gloss]],
+	-- ["normTex"] = [[Interface\AddOns\SnomeaDUI\medias\textures\Minimalist]],
+	["normTex"] = [[Interface\AddOns\SnomeaDUI\medias\textures\Smooth]],
+	-- ["normTex"] = [[Interface\AddOns\SnomeaDUI\medias\textures\sinaris]],
+	-- ["normTex"] = [[Interface\AddOns\SnomeaDUI\medias\textures\statusbar256]],
+	-- ["normTex"] = [[Interface\AddOns\SnomeaDUI\medias\textures\button_gloss]],
+	["DPSTex"] = [[Interface\AddOns\SnomeaDUI\medias\textures\switch_layout_dd]],
+	["HealingTex"] = [[Interface\AddOns\SnomeaDUI\medias\textures\switch_layout_heal]],
+	["gloss"] = [[Interface\AddOns\SnomeaDUI\medias\textures\button_gloss]],
 	["backdropcolor"] = { .1,.1,.1 },                   -- default backdrop color of panels
 	["bordercolor"] = { .2,.2,.2 },                     -- default border color of panels
 }

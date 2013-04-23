@@ -7,6 +7,6 @@ SnoUiExtraButtonPosition:SetScript( "OnEvent", function( self, event )
 	local extra = G.ActionBars.BarExtra
 	if not T.lowversion then
 		extra:ClearAllPoints()
-		extra:Point("BOTTOM", raid , "TOP", 0, 20)
+		extra:Point("TOP", raid , "BOTTOM", 0, 20)
 	end
 end )
