@@ -1,8 +1,8 @@
-## Interface: 50200
+## Interface: 50400
 ## Title: |cffFFFFFFSnomeaDUI|r
 ## Notes: Snomead edited version of Tukui.
 ## Author: Snomead
-## Version: 1.5.2.0
+## Version: 1.5.4.0
 ## RequiredDeps: SnomeaDUI_Config, Tukui
 
 SnomeaDUI.xml
