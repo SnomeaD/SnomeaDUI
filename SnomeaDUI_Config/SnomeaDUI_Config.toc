@@ -1,7 +1,7 @@
-## Interface: 50200
+## Interface: 50400
 ## Title: |cffFFFFFFSnomeaDUI Config|r
 ## Notes: Custom Default Configuration for SnomeaDUI
 ## Author: SnomeaD
-## Version: 1.5.2.0
+## Version: 1.5.4.0
 
 config\config.lua
